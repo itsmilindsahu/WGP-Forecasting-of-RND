@@ -1,0 +1,17 @@
+,0
+gp_rmse,1.631565200240333
+baseline_rmse,1.1508468155777671
+persistence_rmse,0.8843078557765203
+gp_coverage_95,0.75
+baseline_coverage_95,1.0
+persistence_coverage_95,1.0
+gp_nlpd_mean,2.083432968620156
+baseline_nlpd_mean,1.570858546056048
+persistence_nlpd_mean,1.3267759687731009
+gp_w2_forecast_error_mean,0.863641049309777
+baseline_w2_forecast_error_mean,1.0861091854364069
+persistence_w2_forecast_error_mean,0.9573914627227915
+noforecast_gaussian_w2_mean,1.0827147916751736
+gp_w2_shape_only_mean,0.14107125982510765
+baseline_w2_shape_only_mean,0.4203093038492375
+persistence_w2_shape_only_mean,0.10167842743653535
