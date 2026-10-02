@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+*.egg-info/
+
+# Environment / credentials
+.env
+.env.*
+!.env.example
+creds.txt
+*.key
+*.pem
+
+# ThetaData / raw market data
+01_data_collection/data/raw/
+01_data_collection/data/raw/**
+**/theta_eod/
+**/*theta*.parquet
+
+# Market-data files
+*.parquet
+*.feather
+
+# Local generated datasets
+01_data_collection/data/option_chains_spx.csv
+01_data_collection/data/option_chains_spx_20d.csv
+01_data_collection/data/spx_iv_20d.csv
+01_data_collection/data/spx_30d_smiles.csv
+01_data_collection/data/svi_30d_curves.csv
+01_data_collection/data/svi_30d_params.csv
+02_rnd_extraction/data/rnd_30d.csv
+02_rnd_extraction/data/rnd_30d_diagnostics.csv
+
+# Generated model outputs
+04_gp_model/results/
+05_baselines/results/
+06_evaluation/results/
+
+# Temporary / OS files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+# Local project archive
+Update.zip
+# Legacy / synthetic artifacts
+01_data_collection/data/iv_curves.csv
+01_data_collection/data/option_chains.csv
+01_data_collection/data/svi_params.csv
+02_rnd_extraction/data/martingale_diagnostics.csv
+02_rnd_extraction/data/rnd_curves.csv
+03_wasserstein_kernel/gram_matrix.csv
+
+# Archived old/synthetic project artifacts
+archive/
