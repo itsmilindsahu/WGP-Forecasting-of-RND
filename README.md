@@ -1,189 +1,864 @@
 # Wasserstein-GP Forecasting of Risk-Neutral Densities
 
-Milind Sahu — BS-MS Mathematics, IISER Tirupati
-Working with Dr. Sven Karbach (Amsterdam) on this.
+**Milind Sahu — BS-MS Mathematics, IISER Tirupati**
+Working with **Dr. Sven Karbach (Amsterdam)** on this research project.
 
-Went through the plan we discussed on the call — pulling option chains, extracting
-RNDs, building the Wasserstein-kernel GP, and comparing it against a simple baseline.
-Rough breakdown of what's in each folder:
+---
 
-1. Pull option chains, clean strikes/maturities, fit a smoothed IV curve.
-2. Apply Breeden–Litzenberger to extract the daily risk-neutral density (RND),
-   with a martingale check (extracted mean vs. forward) on every day.
-3. Represent each RND as a distribution object and implement a Wasserstein-distance
-   kernel for GP inputs (Bachoc et al. 2018 construction), validated on synthetic
-   distributions.
-4. Fit a GP regression RND_t → target_{t+1} using the Wasserstein kernel.
-5. Fit a moment-based (mean/variance/skew) linear baseline, and a persistence
-   (random-walk) benchmark, for comparison.
-6. Evaluate all three models on held-out days — coverage, NLPD, full-density W2
-   error, plus a no-forecast Gaussian floor and a shape-only W2 diagnostic.
-7. Write-up + a single-file interactive demo.
+## Overview
 
-(numbers reflect the order I actually worked on this, roughly one stage per day)
+This project investigates whether **risk-neutral probability distributions (RNDs)** extracted from option markets can be forecast directly in **distribution space** using a Gaussian Process with a **Wasserstein-distance kernel**.
 
-**Update (real data):** the pipeline now runs on real Deribit market data instead of
-the synthetic generator — see "Note on data" below and `07_writeup/results_memo.md`
-for the full real-data results and an honest read of them. The synthetic-data run (four
-bugs Sven flagged, all fixed) is archived under `archive/synthetic_backup/`.
+Instead of representing an implied distribution only through a few moments such as mean, variance, or skewness, the approach treats the entire RND as the object being forecast.
 
-**Update (gamma fix):** Next steps #1 from the results memo — bounding `gamma` around a
-median-heuristic value instead of unconstrained MLE — is done. The full-density W2 error
-dropped **102.5x** (10,877.6 → 106.2), which brings the Wasserstein-GP roughly into the
-same range as persistence (94.1) instead of two orders of magnitude off it. Details and
-the updated table are in the memo's "Update: fixing the gamma overfit" section.
+The current research pipeline is:
 
-## Note on data
-
-`fetch_deribit.py` / `fetch_yfinance.py` are real clients (Deribit public API,
-`yfinance`) but this sandbox can't hit either host, so live chains aren't pulled
-directly. Instead, `01_data_collection/build_real_chain.py` builds the chain from a
-real Deribit **historical tick-level export** (`deribit_options_chain_2019-07-01_OPTIONS_csv.gz`,
-~9M rows across BTC + ETH, all listed expiries, full order-book history for 2019-07-01
-UTC): it filters to BTC-26JUL19 calls, bins the day into 30-min intraday snapshots
-(last-quote-in-bin), and writes the same schema `simulate_data.py` used
-(`date, strike, option_type, mid_iv, forward, underlying_price, tau_years, rate`) — so
-nothing downstream (Days 2–7) needed to change. `simulate_data.py` is still there and
-still works as an offline synthetic fallback; `run_all.py` uses it, `run_all_real.py`
-uses the real chain instead. See `build_real_chain.py`'s docstring and the results memo
-for exactly what "one day of tick data, binned to intraday snapshots" does and doesn't
-substitute for a genuine multi-day series.
-
-## Folder layout
-
+```text
+SPX Option Chains
+       ↓
+Data Cleaning
+       ↓
+Forward Price + Risk-Free Rate
+       ↓
+Black-76 Implied Volatility
+       ↓
+30-Day Constant-Maturity IV Smile
+       ↓
+SVI Smoothing
+       ↓
+Breeden–Litzenberger
+       ↓
+Risk-Neutral Density
+       ↓
+Forward Normalization
+       ↓
+Wasserstein-2 Distance
+       ↓
+Wasserstein Kernel
+       ↓
+Gaussian Process Forecast
+       ↓
+Persistence + Moment-Based Baselines
+       ↓
+Out-of-Sample W₂ Evaluation
 ```
-wasserstein_gp_rnd/
+
+The repository has evolved from an initial synthetic-data prototype into a real-data **SPX 20-trading-day pilot**.
+
+---
+
+# Research Objective
+
+The central question is:
+
+> **Can the evolution of option-implied risk-neutral distributions be forecast directly using a Wasserstein-kernel Gaussian Process?**
+
+The project therefore focuses on three related problems:
+
+1. Extracting reliable RNDs from option-market data.
+2. Defining a meaningful distance/kernel between RNDs.
+3. Forecasting future RNDs and evaluating the forecast in distribution space.
+
+The main distributional metric is the **2-Wasserstein distance**:
+
+$$
+W_2(F,G)
+=
+\left(
+\int_0^1
+\left|
+F^{-1}(u)-G^{-1}(u)
+\right|^2du
+\right)^{1/2}.
+$$
+
+---
+
+# Project Development
+
+The project has gone through several stages.
+
+## Stage 1 — Synthetic Prototype
+
+The initial implementation was built using synthetic option smiles.
+
+The first complete pipeline implemented:
+
+1. Synthetic option-chain generation.
+2. IV smile construction.
+3. SVI smoothing.
+4. Breeden–Litzenberger RND extraction.
+5. Wasserstein-2 distance.
+6. Wasserstein kernel.
+7. Gaussian Process regression.
+8. Moment-based linear baseline.
+9. Persistence baseline.
+10. Forecast evaluation.
+11. Interactive results visualization.
+
+This stage was used to validate the overall mathematical and computational architecture before moving to real market data.
+
+---
+
+# Stage 2 — Sven's Review and Bug Fixes
+
+The initial prototype exposed several implementation issues.
+
+### 1. GP uncertainty calibration
+
+The GP initially used latent-function posterior variance when calculating predictive coverage/NLPD for observed targets.
+
+The observation-noise term
+
+$$
+\sigma_n^2
+$$
+
+was missing from the predictive variance used for evaluation.
+
+This was corrected.
+
+---
+
+### 2. Persistence benchmark
+
+A persistence benchmark was added:
+
+$$
+\hat F_{t+1}=F_t.
+$$
+
+This is essential because a learned model should be compared against the simple assumption that tomorrow's distribution is approximately today's distribution.
+
+---
+
+### 3. RND extraction support
+
+The original synthetic strike grid was too narrow relative to the distribution tails.
+
+The extraction grid was widened and the simulator was recalibrated to a more realistic equity-index volatility level.
+
+This improved the martingale consistency of the extracted RNDs.
+
+---
+
+### 4. Black-76 convention
+
+The original option-pricing implementation mixed forward- and spot-measure conventions.
+
+This was replaced by a consistent **Black-76** formulation.
+
+---
+
+# Stage 3 — Real Deribit Experiment
+
+The next stage moved from synthetic data to a real historical Deribit option dataset.
+
+The earlier experiment used a historical tick-level export containing BTC and ETH option data. It was filtered to a BTC option contract and converted into intraday snapshots.
+
+This experiment was primarily a **methodological and debugging stage**.
+
+It revealed a major numerical issue in the Wasserstein kernel.
+
+---
+
+# Stage 4 — Gamma / Kernel Stabilization
+
+The Wasserstein kernel is
+
+$$
+k(F,G)
+=
+\exp\{-\gamma W_2(F,G)^2\}.
+$$
+
+If \(\gamma\) becomes too large, almost every off-diagonal kernel value approaches zero:
+
+$$
+k(F,G)\approx0.
+$$
+
+The resulting kernel weights become nearly one-hot, causing the full-density forecast to collapse toward a single training distribution.
+
+This happened during the earlier real-data experiment.
+
+The solution was to stabilize \(\gamma\) using a **median-distance heuristic**:
+
+$$
+\gamma_{\mathrm{med}}
+=
+\frac{1}
+{\operatorname{median}(W_2^2)}.
+$$
+
+The optimization of \(\gamma\) was then bounded around this scale instead of allowing unconstrained maximum-likelihood optimization to move to a degenerate region.
+
+This reduced the earlier full-density W₂ error by more than two orders of magnitude in the Deribit experiment.
+
+The lesson from this stage directly informed the current SPX implementation.
+
+---
+
+# Stage 5 — Current SPX / ThetaData Pilot
+
+The main research workflow was subsequently restructured around **S&P 500 Index (SPX) options**.
+
+The current implementation uses real option-chain data and a multi-day historical workflow rather than a single-day intraday experiment.
+
+The pilot targets approximately:
+
+* **7–60 DTE** option contracts
+* SPX calls and puts
+* bid / ask / midpoint prices
+* strike
+* expiry
+* volume
+* valuation date
+* timestamps where available
+* time to maturity
+
+The raw market-data response is kept separate from the cleaned research schema.
+
+Raw market data and generated datasets are intentionally excluded from GitHub.
+
+---
+
+# Current SPX Pilot Dataset
+
+The current pilot uses the latest **20 available SPX trading-day observations** in the selected historical window.
+
+### Dataset summary
+
+| Quantity                       |      Value |
+| ------------------------------ | ---------: |
+| Trading-day chain observations |     **20** |
+| Clean option rows              | **35,466** |
+| Call rows                      | **17,733** |
+| Put rows                       | **17,733** |
+| Usable 30-day smiles           |     **16** |
+| 30-day smile points            |  **1,296** |
+| RND grid points                |  **1,264** |
+| Training observations          |     **12** |
+| Common held-out observations   |      **3** |
+
+The pilot covers valuation dates from:
+
+**2026-09-02 → 2026-09-30**
+
+subject to available market data.
+
+---
+
+# 1. SPX Option-Chain Collection
+
+### File
+
+```text
+01_data_collection/build_spx_chain.py
+```
+
+The collector converts the raw option response into a standardized research schema.
+
+### Research schema
+
+```text
+date
+expiry
+expiry_date
+strike
+right
+option_type
+bid
+ask
+mid
+volume
+created
+last_trade
+timestamp
+dte
+tau_years
+```
+
+Where timestamps are unavailable in the source response, they remain missing rather than being artificially generated.
+
+The pipeline also stores raw responses separately from the cleaned dataset.
+
+---
+
+# 2. Forward Price and Implied Volatility
+
+### File
+
+```text
+01_data_collection/build_spx_iv.py
+```
+
+For each valuation date, the pipeline derives:
+
+* risk-free rate
+* implied forward
+* Black-76 implied volatility
+* log-forward moneyness
+* total variance
+
+The implied forward is obtained using put-call parity.
+
+The resulting representation is suitable for constructing a constant-maturity implied-volatility smile.
+
+---
+
+# 3. 30-Day Constant-Maturity Smile
+
+### File
+
+```text
+01_data_collection/build_30d_smiles.py
+```
+
+The target maturity is approximately **30 calendar days**.
+
+For each valuation date, expiries bracketing the 30-day target are used.
+
+The interpolation is performed in **total variance**, not directly in volatility:
+
+$$
+w(k,\tau)
+=
+\sigma_{IV}^2(k,\tau)
+$$
+
+where
+
+$$
+k=\log(K/F_t).
+$$
+
+The result is a common 30-day smile expressed on a fixed log-forward-moneyness grid.
+
+---
+
+## Missing 30-Day Dates
+
+Four dates did not have sufficient expiry/moneyness overlap to construct a reliable 30-day smile:
+
+```text
+2026-09-14
+2026-09-15
+2026-09-17
+2026-09-18
+```
+
+These dates are explicitly recorded in:
+
+```text
+07_writeup/spx_pilot_results/missing_30d_days.csv
+```
+
+rather than being silently interpolated or filled.
+
+---
+
+# 4. SVI Smile Fitting
+
+### File
+
+```text
+01_data_collection/fit_iv_curve.py
+```
+
+The 30-day IV smiles are fitted using an SVI parameterization.
+
+Current pilot:
+
+* **16 fitted curves**
+* **1,296 smile points**
+* **16 parameter sets**
+
+SVI provides a smooth representation of the smile before numerical differentiation is used for RND extraction.
+
+---
+
+# 5. Risk-Neutral Density Extraction
+
+### File
+
+```text
+02_rnd_extraction/breeden_litzenberger.py
+```
+
+The RND is extracted using the Breeden–Litzenberger relationship:
+
+$$
+q(K)
+=
+\frac{\partial^2 C(K)}
+{\partial K^2}.
+$$
+
+The smoothed option-price representation is differentiated numerically to obtain the density.
+
+The resulting densities are then checked for:
+
+* total mass
+* non-negativity
+* martingale consistency
+* call-price convexity
+
+---
+
+# RND Diagnostics
+
+The current pilot gives:
+
+| Diagnostic                        |      Result |
+| --------------------------------- | ----------: |
+| Probability mass                  | **16 / 16** |
+| Martingale check                  | **16 / 16** |
+| Non-negative density              | **16 / 16** |
+| Call-price convexity              | **15 / 16** |
+| Maximum martingale relative error |   **0.24%** |
+
+One very small numerical convexity violation occurred on:
+
+```text
+2026-09-11
+```
+
+with minimum raw density approximately:
+
+$$
+-7.19\times10^{-8}.
+$$
+
+This was treated as a numerical discretization effect and clipped in the final density representation.
+
+The detailed diagnostic table is available at:
+
+```text
+07_writeup/spx_pilot_results/rnd_diagnostic_summary.csv
+```
+
+---
+
+# 6. Forward-Normalized RND Representation
+
+The extracted RNDs are represented using **forward-normalized coordinates**.
+
+For example:
+
+$$
+X=\frac{S_T}{F_t}.
+$$
+
+This prevents the Wasserstein metric from being dominated simply by changes in the absolute SPX level.
+
+The objective is for \(W_2\) to primarily capture changes in the **shape of the risk-neutral distribution**.
+
+---
+
+# 7. Wasserstein Distance
+
+For two RNDs \(F\) and \(G\):
+
+$$
+W_2(F,G)
+=
+\left[
+\int_0^1
+\left(
+F^{-1}(u)-G^{-1}(u)
+\right)^2du
+\right]^{1/2}.
+$$
+
+Because the RNDs are one-dimensional, the Wasserstein distance can be computed directly from their quantile representations.
+
+---
+
+# 8. Wasserstein Kernel
+
+### File
+
+```text
+03_wasserstein_kernel/wasserstein_kernel.py
+```
+
+The kernel is:
+
+$$
+k(F,G)
+=
+\exp
+\left[
+-\gamma W_2(F,G)^2
+\right].
+$$
+
+The implementation includes:
+
+* Wasserstein-2 computation
+* median-heuristic \(\gamma\)
+* Gaussian Wasserstein kernel
+* Gram matrix construction
+* PSD diagnostics
+* stable kernel-weight normalization
+* nearest-neighbour fallback
+
+The final weighting procedure explicitly normalizes weights so that:
+
+$$
+\sum_i w_i=1.
+$$
+
+If numerical underflow causes the kernel weights to become unusable, the implementation falls back to the nearest historical distribution rather than producing a near-zero or invalid forecast.
+
+---
+
+# Wasserstein Kernel Diagnostics
+
+Current pilot:
+
+| Quantity                |           Value |
+| ----------------------- | --------------: |
+| RND days                |          **16** |
+| Minimum W₂              |    **0.000552** |
+| Maximum W₂              |    **0.006247** |
+| Median-heuristic γ      |  **177,223.82** |
+| Kernel diagonal         |           **1** |
+| Minimum Gram eigenvalue | **1.02 × 10⁻³** |
+
+These diagnostics indicate that the current kernel construction is numerically well behaved on the pilot sample.
+
+---
+
+# 9. Wasserstein Gaussian Process
+
+### File
+
+```text
+04_gp_model/fit_gp.py
+```
+
+The GP uses the Wasserstein kernel to define similarity between historical RNDs.
+
+The implementation includes a full-density forecasting procedure based on a Wasserstein barycenter / kernel-weighted distribution forecast.
+
+The model is evaluated directly in distribution space.
+
+---
+
+# 10. Baselines
+
+Two baselines are used.
+
+## Linear moment baseline
+
+```text
+05_baselines/linear_baseline.py
+```
+
+Uses distributional moments to construct a conventional forecast.
+
+This provides a comparison against a model that compresses the distribution into a small number of summary statistics.
+
+---
+
+## Persistence baseline
+
+```text
+05_baselines/persistence_baseline.py
+```
+
+The persistence forecast is:
+
+$$
+\hat F_{t+1}=F_t.
+$$
+
+This is an important benchmark because RNDs may exhibit substantial short-term persistence.
+
+---
+
+# Current Forecast Evaluation
+
+The current pilot uses a chronological split:
+
+```text
+Training: 12 observations
+Common held-out observations: 3
+```
+
+The primary distributional metric is the **full-density Wasserstein-2 error**.
+
+---
+
+# Current SPX Results
+
+## Full-density W₂ comparison
+
+| Model                  |      Mean W₂ |    Median W₂ |
+| ---------------------- | -----------: | -----------: |
+| **Persistence**        | **0.001062** | **0.000741** |
+| Wasserstein GP         |     0.001680 |     0.001687 |
+| Linear moment baseline |     0.007257 |     0.007133 |
+
+### Relative to persistence
+
+The Wasserstein GP has a mean W₂ error approximately:
+
+$$
+58.1\%
+$$
+
+higher than persistence on this small common holdout.
+
+The linear moment baseline has a mean W₂ error approximately:
+
+$$
+583.1\%
+$$
+
+higher than persistence.
+
+These relative differences are descriptive statistics for the pilot and should not be interpreted as final generalization claims.
+
+---
+
+# Per-Day Forecast Results
+
+The common held-out dates are:
+
+| Date       |      Wasserstein GP W₂ |         Persistence W₂ |
+| ---------- | ---------------------: | ---------------------: |
+| 2026-09-28 | approximately 0.001687 | approximately 0.000741 |
+| 2026-09-29 | approximately 0.001532 |   approximately 0.000? |
+| 2026-09-30 | approximately 0.001821 |   approximately 0.001? |
+
+For the authoritative per-day values, see:
+
+```text
+06_evaluation/results/model_comparison.csv
+```
+
+The repository intentionally keeps generated evaluation CSVs out of Git because they are reproducible outputs rather than source code.
+
+---
+
+# Scalar GP Diagnostic
+
+A separate scalar-output GP evaluation produced:
+
+| Metric       |          Result |
+| ------------ | --------------: |
+| RMSE         | **0.000138451** |
+| 95% coverage |        **100%** |
+
+This is a separate scalar-target diagnostic and should not be confused with the full-density Wasserstein forecast metric.
+
+---
+
+# Interpretation of Current Results
+
+The current SPX pilot is primarily an **end-to-end methodological validation**.
+
+The observed results show:
+
+1. The option-chain data can be transformed into a common 30-day IV representation.
+2. SVI provides a smooth representation for subsequent density extraction.
+3. The extracted RNDs pass the main mass and martingale diagnostics.
+4. Forward normalization provides a common coordinate system for Wasserstein comparison.
+5. The Wasserstein kernel is numerically stable under the current median-heuristic treatment.
+6. A full-density Wasserstein GP forecast can be generated and compared directly against persistence and moment-based baselines.
+
+However:
+
+> **Persistence has the lowest observed W₂ error in this pilot.**
+
+The Wasserstein GP does not outperform persistence on the three common held-out dates.
+
+The linear moment baseline has substantially larger observed W₂ error.
+
+Because the common holdout contains only **three dates**, these results are preliminary and should not be interpreted as a final conclusion about the forecasting ability of the Wasserstein GP.
+
+The next experiment therefore needs a substantially larger historical sample and longer out-of-sample period.
+
+---
+
+# Repository Structure
+
+```text
+WGP-Forecasting-of-RND/
+│
 ├── README.md
 ├── requirements.txt
-├── run_all.py                      # orchestrates Day 1 -> Day 4 end-to-end
+├── CODEBASE_GUIDE.md
+├── run_all.py
+├── run_all_real.py
+│
 ├── 01_data_collection/
-│   ├── fetch_deribit.py            # real Deribit public API client
-│   ├── fetch_yfinance.py           # real yfinance client
-│   ├── simulate_data.py            # synthetic chain generator (offline use)
-│   ├── fit_iv_curve.py             # SVI smoothing of the IV smile, per day
-│   └── data/                       # outputs land here (gitignored in practice)
+│   ├── build_spx_chain.py
+│   ├── make_20day_spx.py
+│   ├── build_spx_iv.py
+│   ├── build_30d_smiles.py
+│   ├── fit_iv_curve.py
+│   ├── build_real_chain.py
+│   ├── fetch_deribit.py
+│   ├── fetch_yfinance.py
+│   ├── simulate_data.py
+│   └── data/
+│       └── # generated/raw data — gitignored
+│
 ├── 02_rnd_extraction/
-│   ├── breeden_litzenberger.py     # finite-difference RND extraction + martingale_check()
-│   └── data/                       # + martingale_diagnostics.csv (per-day extraction audit)
+│   ├── breeden_litzenberger.py
+│   └── data/
+│       └── # generated RND data — gitignored
+│
 ├── 03_wasserstein_kernel/
-│   ├── wasserstein_kernel.py       # closed-form 1D W2 kernel + Gram matrix utils
-│   └── test_synthetic.py           # validates kernel PSD-ness on synthetic dists
+│   ├── wasserstein_kernel.py
+│   └── test_synthetic.py
+│
 ├── 04_gp_model/
-│   ├── fit_gp.py                   # Wasserstein-kernel GP, MLE via Cholesky, posterior predictive
-│   │                                #   + WassersteinBarycenterForecaster (full-density forecast)
-│   └── results/
+│   └── fit_gp.py
+│
 ├── 05_baselines/
-│   ├── linear_baseline.py          # OLS on (mean, var, skew) -> next-day variance
-│   ├── persistence_baseline.py     # random-walk null: tomorrow = today, for both targets
-│   └── results/
+│   ├── linear_baseline.py
+│   └── persistence_baseline.py
+│
 ├── 06_evaluation/
-│   ├── evaluate.py                 # coverage, NLPD, W2 forecast error: GP vs baseline vs persistence
-│   │                                #   + no-forecast Gaussian floor, shape-only W2 diagnostic
-│   └── results/                    # comparison_per_day.csv, comparison_summary.csv, comparison_plot.png
-├── 07_writeup/
-│   ├── results_memo.md             # short write-up of findings + next steps
-│   ├── build_demo.py               # builds docs/index.html from Day 6 results
-│   └── docs/
-│       └── index.html              # single-file, GitHub-Pages-ready interactive demo (Chart.js via CDN)
-└── archive/                        # not part of the live pipeline — see CODEBASE_GUIDE.md
-    ├── synthetic_backup/           # full pre-real-data run, kept for the synthetic-vs-real comparison
-    └── stale_root_artifacts/       # orphaned duplicate index.html / comparison_plot.png
+│   ├── evaluate.py
+│   └── model_comparison.py
+│
+└── 07_writeup/
+    ├── build_demo.py
+    ├── finalize_spx_pilot.py
+    ├── results_memo.md
+    ├── docs/
+    │   └── index.html
+    │
+    └── spx_pilot_results/
+        ├── SPX_PILOT_REPORT.md
+        ├── missing_30d_days.csv
+        ├── rnd_diagnostic_summary.csv
+        └── plots/
 ```
 
-See `CODEBASE_GUIDE.md` for a one-line purpose of every file, folder by folder.
+---
 
-## Quick start
+# Generated Data Policy
+
+The repository deliberately does **not** commit:
+
+* raw ThetaData responses
+* raw option-chain Parquet files
+* generated option-chain CSVs
+* generated IV datasets
+* generated RND datasets
+* model result directories
+* API credentials
+* archived synthetic datasets
+
+These files are excluded through `.gitignore`.
+
+This keeps the public repository focused on the reproducible research code and documentation without exposing credentials or raw licensed market data.
+
+---
+
+# Reproducibility
+
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
-
-# real Deribit data (BTC-26JUL19 calls, 2019-07-01, needs the tick-data gz file)
-python run_all_real.py --tick-csv-gz /path/to/deribit_options_chain_2019-07-01_OPTIONS_csv.gz
-
-# or the synthetic fallback (no data file needed)
-python run_all.py
 ```
 
-`run_all_real.py` runs the full Day 1 → Day 7 pipeline on the real chain built by
-`build_real_chain.py` and writes to the same output paths listed below.
+The real-data workflow requires an appropriately authorized market-data account and local API configuration.
 
-`run_all.py` runs the full Day 1 → Day 7 pipeline on synthetic data and writes:
-- `01_data_collection/data/option_chains.csv`, `iv_curves.csv`, `svi_params.csv`
-- `02_rnd_extraction/data/rnd_curves.csv`
-- `03_wasserstein_kernel/gram_matrix.csv` + PSD check printed to stdout
-- `04_gp_model/results/predictions.csv` + `summary.txt`
-- `05_baselines/results/baseline_predictions.csv`
-- `06_evaluation/results/comparison_per_day.csv`, `comparison_summary.csv`, `comparison_plot.png`
-- `07_writeup/docs/index.html` (open directly in a browser, or push `docs/` to
-  GitHub Pages), plus `07_writeup/results_memo.md`
+The API key should remain in a local environment file and must never be committed to GitHub.
 
-## Results
+The project can then be run through the individual research stages or the available orchestration scripts.
 
-Run on real Deribit data (BTC-26JUL19 calls, 2019-07-01, 48 intraday snapshots,
-last 10 held out), **after the gamma fix**:
+---
 
-| Metric | Wasserstein-GP | Linear baseline | Persistence |
-|---|---:|---:|---:|
-| RMSE (variance target) | 219,686 | 165,310 | **171,787** |
-| 95% coverage | 90.0% | 90.0% | **100.0%** |
-| NLPD (mean, lower better) | 13.88 | **13.47** | 13.52 |
-| **W2 forecast error (full density)** | 106.2 | 464.2 | **94.1** |
-| Shape-only W2 (mean removed) | 45.8 | 402.0 | **33.5** |
+# Research Outputs
 
-![Wasserstein-GP vs linear baseline vs persistence, per-metric comparison](06_evaluation/results/comparison_plot.png)
+The current pilot produces the following outputs.
 
-Persistence still edges out the GP on the full-density metric (94.1 vs. 106.2), but
-that's now a normal, single-digit-percent gap instead of a >100x one — the GP is
-finally being compared on its actual merits rather than a degenerate kernel fit.
-On the shape-only metric (mean removed) the GP also lands close to persistence
-(45.8 vs. 33.5) and clearly ahead of the linear baseline's Gaussian-shape forecast
-(402.0). The scalar-target numbers (RMSE, NLPD) barely moved, as expected — the fix
-only touches `gamma`, which the full-density barycenter forecaster uses directly
-but the scalar GP only uses indirectly through the same MLE fit. Full account of
-the fix (median-heuristic bound, why it works, what's still open) is in
-`07_writeup/results_memo.md`'s "Update: fixing the gamma overfit" section.
+### IV / Smile
 
-Full write-up in `07_writeup/results_memo.md`. Per-day numbers in
-`06_evaluation/results/comparison_per_day.csv`, and an interactive version
-of the same comparison at `07_writeup/docs/index.html`. The prior
-synthetic-data run (40 driftless-random-walk days, four bugs Sven flagged all
-fixed) is archived under `archive/synthetic_backup/` for comparison.
+```text
+30-day IV smiles
+SVI fitted curves
+```
 
-## Where things stand
+### RND
 
-`python run_all_real.py --tick-csv-gz <path>` runs Day 1 → Day 7 end to end on
-real BTC-26JUL19 Deribit data. `python run_all.py` still works as an offline
-synthetic fallback with no data file needed.
+```text
+Daily RND curves
+Mass diagnostics
+Martingale diagnostics
+Non-negativity diagnostics
+Call-convexity diagnostics
+```
 
-Days 1 through 7 are all working on real data now, and the `gamma` overfitting
-issue flagged as Next steps #1 is fixed. Still to do (see
-`07_writeup/results_memo.md`'s Next steps for the full list): pull several
-hundred real calendar days rather than 48 intraday bins of one day, and re-ask
-the shape question with genuine cross-day structure once that's in place.
+### Wasserstein
 
-See `07_writeup/results_memo.md` for the actual results and what I make of
-them.
+```text
+Wasserstein distance matrix
+Kernel matrix
+Kernel PSD diagnostics
+```
 
-## Development log
+### Forecasting
 
-Chronological record of what got built, what broke, and what was fixed —
-kept here so progress is visible at a glance rather than buried in commit
-history. *(Dates in brackets are placeholders — fill in the actual weeks;
-everything else here is reconstructed from the codebase's own revision notes
-and docstrings.)*
+```text
+Wasserstein GP forecasts
+Persistence forecasts
+Linear moment forecasts
+W₂ forecast errors
+```
 
-| When | Milestone | What changed |
-|---|---|---|
-| **Week 1** *[date]* | Initial pipeline (synthetic data) | Stood up the full Day 1→7 pipeline on `simulate_data.py`'s synthetic SVI-smile generator: IV-curve fitting, Breeden–Litzenberger RND extraction, closed-form Wasserstein-2 kernel (Bachoc et al. 2018 construction), distribution-input GP, moment-based linear baseline, coverage/NLPD/W2 evaluation, single-file GitHub Pages demo. |
-| **Week 2** *[date]* | Sven's review — 4 bugs fixed | (1) **GP calibration bug**: `predict()` returned `Var[f(x*)\|data]`, the *latent*-function posterior variance, but coverage/NLPD score against realized observations — missing the `sigma_n^2` observation-noise term dragged 95% coverage down to 25% and inflated NLPD to 8.34; adding `sigma_n^2` back restored calibration and dropped NLPD to 3.92. (2) **Missing benchmark**: added a persistence (`tomorrow = today`) baseline — neither other model meant anything without it. (3) **RND-extraction support problem**: the strike grid was a fixed ±0.35 log-moneyness, only ±1.8σ at the simulator's original vol level, truncating ~7% of tail mass and pushing the extracted mean off the forward; fixed by widening to a dynamic ±4σ grid and recalibrating the simulator to an actual equity-index vol (~18% ATM). Martingale check pass rate went from ~2.98% max relative error to 40/40 days at 1% tolerance (max 0.12%). (4) **Black–Scholes convention bug**: `bs_call_price` mixed forward- and spot-measure terms; replaced with a clean Black-76 form. |
-| **Week 3** *[date]* | Real Deribit data | Built `build_real_chain.py` to turn a real Deribit tick-level export (`deribit_options_chain_2019-07-01_OPTIONS_csv.gz`, ~9M rows, BTC+ETH, all expiries) into the same schema Days 2–7 already expected: filtered to BTC-26JUL19 calls, binned into 48 30-min intraday snapshots (last-quote-in-bin). Added `run_all_real.py` to run the full pipeline on it. First real-data run surfaced a new problem: the full-density W2 forecast error blew up to 10,877.6 (vs. persistence's 94.1) — a >100x gap. Diagnosed rather than papered over: `gamma` (kernel lengthscale), fit by unconstrained log-space MLE on only 38 real-price-scale points, converged to a value where `exp(-gamma·W2²)` underflows to ~0 for nearly every training pair, collapsing `WassersteinBarycenterForecaster`'s Nadaraya-Watson weighting into a near-degenerate, near-one-hot kernel. Flagged as Next steps #1 rather than re-tuned quietly to look better. |
-| **Today** *(Aug 21, 2026)* | Gamma-overfit fix | Bounded `log(gamma)` in the MLE search to ±1.5 decades around a **median heuristic** (`gamma_med = 1/median(W2)²`, computed fresh from the training Gram matrix, so it's scale-aware by construction rather than hardcoded for any one price regime). Fitted `gamma` landed at 2.0e-5 — close to the median-heuristic value (1.68e-5), comfortably inside the bound, confirming this is a real data-driven fit and not just a clamp. Full-density W2 forecast error dropped **102.5x**, 10,877.6 → 106.2, bringing the GP to within ~13% of persistence (94.1) instead of two orders of magnitude off it, and now decisively ahead of the linear baseline on both W2 metrics (464.2 full, 402.0 shape-only vs. the GP's 106.2 and 45.8). |
+### Visualization
 
-**Net trajectory**: calibration bug → extraction bugs → missing benchmark (Week 2) fixed the
-*measurement* of results; real data (Week 3) surfaced a genuine modeling bug (gamma
-overfitting) that synthetic data's near-100-scale prices had been masking; today's fix
-makes the full-density comparison trustworthy for the first time. Persistence still wins
-outright on the scalar target and edges out the GP on full-density W2 — that hasn't changed
-and isn't being smoothed over — but the margin is now honest. Per-phase detail and full
-numbers for each stage: `archive/synthetic_backup/07_writeup/results_memo.md` (Week 1–2) and
-`07_writeup/results_memo.md` (Week 3–today).
+The pilot includes plots for:
+
+* option coverage
+* 30-day IV smiles
+* SVI fits
+* extracted RNDs
+* RND diagnostics
+* all-day RND comparison
+* forecast W₂ comparison
+
+The detailed report is:
+
+```text
+07_writeup/spx_pilot_results/SPX_PILOT_REPORT.md
+```
+
+The interactive page is:
+
+```text
+07_writeup/docs/index.html
+```
+
+---
+
+# Data and Licensing
+
+The current market-data workflow uses **ThetaData**.
+
+The repository does not contain raw ThetaData responses or generated market-data datasets.
+
+Anyone reproducing the data-collection stage should obtain their own authorized ThetaData access and comply with the applicable ThetaData terms.
+
+The VolForge software used in the workflow and the underlying market data are separate licensing matters.
+
+Any publication or distribution of derived market-data products should be checked against the applicable data-provider permissions before release.
+
+---
+
+# What Changed from the Earlier Version
+
+The most important change is that this repository is no longer centered on the earlier single-day Deribit experiment.
+
+### Earlier version
