@@ -40,8 +40,8 @@ def simulate_chain(
     # w(0) = a + b*sigma implies an ATM annualized vol of ~18% (equity-index
     # level), not the ~68% (crypto-level) the previous (a=0.02, b=0.15)
     # starting point implied: w(0) = 0.02 + 0.15*0.12 = 0.038 ->
-    # iv = sqrt(0.038/0.0822) = 68%. Fixed per Sven's review: the docstring
-    # says "equity-index smile" so the simulator should actually produce one.
+    # iv = sqrt(0.038/0.0822) = 68%. The simulator should match its stated
+    # equity-index use case.
     a, b, rho, m, sigma = 0.0005, 0.018, -0.5, 0.0, 0.12
     rate = 0.03
 
@@ -62,8 +62,8 @@ def simulate_chain(
 
         # Strike grid widened to +/-4 std of log-moneyness (previously a
         # fixed +/-0.35, which was only ~1.8 std at the old 68%-vol
-        # parameterization and truncated ~7% of the RND's mass -- see
-        # Sven's review). std of log-moneyness over the option's horizon is
+        # parameterization and truncated ~7% of the RND's mass. The standard
+        # deviation of log-moneyness over the option's horizon is
         # sqrt(ATM total variance) = sqrt(w(0)); grid is recomputed each day
         # since (a,b,rho,m,sigma) drift.
         w_atm = svi_total_variance(np.array([m]), a, b, rho, m, sigma)[0]

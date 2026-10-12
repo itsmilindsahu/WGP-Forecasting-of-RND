@@ -2,9 +2,9 @@
 Day 1 — Real data: build option_chains.csv from the Deribit tick-level
 options-chain export (tardis.dev-format CSV, one full day: 2019-07-01).
 
-Why this exists: fetch_deribit.py needs live network access to deribit.com,
-which this sandbox doesn't have. Milind pulled a historical tick-level dump
-instead (deribit_options_chain_2019-07-01_OPTIONS_csv.gz, ~9M rows, BTC+ETH,
+Why this exists: fetch_deribit.py needs live network access to deribit.com.
+This adapter processes a historical tick-level dump instead
+(deribit_options_chain_2019-07-01_OPTIONS_csv.gz, ~9M rows, BTC+ETH,
 all listed expiries, full order-book snapshots throughout 2019-07-01 UTC).
 
 This is real market data, but it is a *single calendar day* of tick data, not

@@ -421,6 +421,8 @@ class WassersteinBarycenterForecaster:
 
         self.Q_input_train = None
         self.Q_target_train = None
+        self.fallback_count = 0
+        self.prediction_count = 0
 
     def fit(
         self,
@@ -435,6 +437,8 @@ class WassersteinBarycenterForecaster:
         self.Q_target_train = (
             Q_target_train
         )
+        self.fallback_count = 0
+        self.prediction_count = 0
 
         return self
 
@@ -465,6 +469,11 @@ class WassersteinBarycenterForecaster:
         similarities = np.exp(
             -self.gamma * w2**2
         )
+
+        similarity_sum = similarities.sum()
+        if not np.isfinite(similarity_sum) or similarity_sum <= 1e-14:
+            self.fallback_count += 1
+        self.prediction_count += 1
 
         # Nearest neighbour
         nearest_index = int(
@@ -728,6 +737,30 @@ def main():
         np.abs(z) <= 1.96
     )
 
+    scalar_predictions = pd.DataFrame({
+        "date": test_dates,
+        "y_true": y_test,
+        "y_pred_mean": mean_pred,
+        "y_pred_std": std_pred,
+    })
+    scalar_predictions.to_csv(
+        os.path.join(RESULT_DIR, "spx_scalar_predictions.csv"),
+        index=False,
+    )
+
+    pd.DataFrame([{
+        "training_days": n_train,
+        "test_days": len(test_dates),
+        "rmse": rmse,
+        "coverage_95": coverage_95,
+        "sigma_f2": gp.sigma_f2,
+        "gamma": gp.gamma,
+        "sigma_n2": gp.sigma_n2,
+    }]).to_csv(
+        os.path.join(RESULT_DIR, "spx_scalar_summary.csv"),
+        index=False,
+    )
+
     print()
     print("SCALAR GP")
     print("-" * 70)
@@ -865,7 +898,14 @@ def main():
             "wasserstein_gp_w2":
                 bary_errors[i],
             "persistence_w2":
-                persistence_errors[i]
+                persistence_errors[i],
+            "kernel_weight_fallback_count": bary.fallback_count,
+            "kernel_weight_prediction_count": bary.prediction_count,
+            "kernel_weight_fallback_rate": (
+                bary.fallback_count / bary.prediction_count
+                if bary.prediction_count
+                else 0.0
+            ),
         })
 
     comparison = pd.DataFrame(

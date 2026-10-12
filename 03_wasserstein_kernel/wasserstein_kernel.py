@@ -261,7 +261,7 @@ def stable_kernel_weights(
     """
     Convert kernel similarities into stable weights.
 
-    Required stabilization from Sven's review:
+    Stable barycenter normalization:
 
     - weights must always sum to 1
     - if numerical underflow/collapse occurs,

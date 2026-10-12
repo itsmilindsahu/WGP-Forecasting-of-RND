@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
+from scipy.optimize import Bounds, LinearConstraint, minimize
 from scipy.stats import norm
 
 
@@ -50,6 +51,51 @@ def bs_call_price(
 # BREEDEN-LITZENBERGER
 # ============================================================
 
+def project_call_prices(
+    strike: np.ndarray,
+    call_prices: np.ndarray,
+    forward: float,
+    tau: float,
+    rate: float,
+) -> tuple[np.ndarray, float, bool]:
+    """Least-squares project call prices onto discrete no-arbitrage constraints."""
+    strike = np.asarray(strike, dtype=float)
+    call_prices = np.asarray(call_prices, dtype=float)
+    discount = np.exp(-rate * tau)
+    scale = max(discount * forward, 1.0)
+    prices_scaled = call_prices / scale
+
+    slope_matrix = np.zeros((len(strike) - 1, len(strike)))
+    spacing = np.diff(strike)
+    row_indices = np.arange(len(spacing))
+    slope_matrix[row_indices, row_indices] = -1.0 / spacing
+    slope_matrix[row_indices, row_indices + 1] = 1.0 / spacing
+    convexity_matrix = np.diff(slope_matrix, axis=0)
+
+    lower_prices = discount * np.maximum(forward - strike, 0.0) / scale
+    upper_prices = np.full_like(strike, discount * forward / scale)
+    constraints = [
+        LinearConstraint(slope_matrix, -discount / scale, 0.0),
+        LinearConstraint(convexity_matrix, 0.0, np.inf),
+    ]
+
+    result = minimize(
+        lambda candidate: 0.5 * np.sum((candidate - prices_scaled) ** 2),
+        np.clip(prices_scaled, lower_prices, upper_prices),
+        jac=lambda candidate: candidate - prices_scaled,
+        method="SLSQP",
+        bounds=Bounds(lower_prices, upper_prices),
+        constraints=constraints,
+        options={"ftol": 1e-12, "maxiter": 2000},
+    )
+    if not result.success:
+        raise RuntimeError(f"Call-price no-arbitrage projection failed: {result.message}")
+
+    projected = result.x * scale
+    projection_rmse = float(np.sqrt(np.mean((projected - call_prices) ** 2)))
+    pre_projection_convex = bool(np.all(np.diff(slope_matrix @ prices_scaled) >= -1e-10))
+    return projected, projection_rmse, pre_projection_convex
+
 def extract_rnd(
     strike,
     forward,
@@ -87,7 +133,13 @@ def extract_rnd(
     )
 
     K = K_uniform
-    C = C_uniform
+    C, projection_rmse, pre_projection_convex = project_call_prices(
+        K_uniform,
+        C_uniform,
+        forward,
+        tau,
+        rate,
+    )
 
     # Strike spacing
     h = K[1] - K[0]
@@ -127,7 +179,11 @@ def extract_rnd(
         K_mid,
         density,
         density_raw,
-        raw_mass
+        raw_mass,
+        {
+            "call_convexity_pre_projection_pass": pre_projection_convex,
+            "call_price_projection_rmse": projection_rmse,
+        },
     )
 
 
@@ -142,7 +198,8 @@ def calculate_diagnostics(
     forward,
     rate,
     tau,
-    raw_mass
+    raw_mass,
+    projection_diagnostics: dict | None = None,
 ):
 
     # Probability mass after normalization
@@ -192,7 +249,7 @@ def calculate_diagnostics(
         abs(normalized_mass - 1.0) <= 1e-6
     )
 
-    return {
+    diagnostics = {
         "forward": forward,
         "tau_years": tau,
         "rate": rate,
@@ -212,6 +269,9 @@ def calculate_diagnostics(
         "call_convexity_pass": call_convexity_pass,
         "mass_pass": mass_pass
     }
+    if projection_diagnostics:
+        diagnostics.update(projection_diagnostics)
+    return diagnostics
 
 
 # ============================================================
@@ -255,7 +315,7 @@ def main():
         )
 
         # Extract RND
-        K, density, density_raw, raw_mass = extract_rnd(
+        K, density, density_raw, raw_mass, projection_diagnostics = extract_rnd(
             g["strike"].to_numpy(),
             forward,
             tau,
@@ -282,7 +342,8 @@ def main():
             forward,
             rate,
             tau,
-            raw_mass
+            raw_mass,
+            projection_diagnostics,
         )
 
         diag["date"] = date

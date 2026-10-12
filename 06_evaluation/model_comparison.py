@@ -27,6 +27,13 @@ LINEAR_FILE = (
     / "linear_spx_predictions.csv"
 )
 
+DISTRIBUTION_BASELINES_FILE = (
+    ROOT
+    / "05_baselines"
+    / "results"
+    / "distribution_forecast_predictions.csv"
+)
+
 OUT_DIR = ROOT / "06_evaluation" / "results"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -46,6 +53,11 @@ gp = pd.read_csv(
 
 linear = pd.read_csv(
     LINEAR_FILE,
+    parse_dates=["date"]
+)
+
+distribution_baselines = pd.read_csv(
+    DISTRIBUTION_BASELINES_FILE,
     parse_dates=["date"]
 )
 
@@ -100,6 +112,19 @@ comparison = pd.merge(
     how="inner",
 )
 
+comparison = pd.merge(
+    comparison,
+    distribution_baselines[
+        [
+            "date",
+            "wasserstein_ar_w2",
+            "moment_gp_w2",
+        ]
+    ],
+    on="date",
+    how="inner",
+)
+
 
 comparison = comparison.sort_values(
     "date"
@@ -143,21 +168,29 @@ summary = pd.DataFrame(
             "Persistence",
             "Linear moment baseline",
             "Wasserstein GP",
+            "Wasserstein autoregression",
+            "Conventional GP (moments)",
         ],
         "mean_w2": [
             comparison["persistence_w2"].mean(),
             comparison["linear_w2"].mean(),
             comparison["wasserstein_gp_w2"].mean(),
+            comparison["wasserstein_ar_w2"].mean(),
+            comparison["moment_gp_w2"].mean(),
         ],
         "median_w2": [
             comparison["persistence_w2"].median(),
             comparison["linear_w2"].median(),
             comparison["wasserstein_gp_w2"].median(),
+            comparison["wasserstein_ar_w2"].median(),
+            comparison["moment_gp_w2"].median(),
         ],
         "std_w2": [
             comparison["persistence_w2"].std(),
             comparison["linear_w2"].std(),
             comparison["wasserstein_gp_w2"].std(),
+            comparison["wasserstein_ar_w2"].std(),
+            comparison["moment_gp_w2"].std(),
         ],
     }
 )
@@ -252,6 +285,20 @@ plt.plot(
     comparison["wasserstein_gp_w2"],
     marker="o",
     label="Wasserstein GP"
+)
+
+plt.plot(
+    comparison["date"],
+    comparison["wasserstein_ar_w2"],
+    marker="o",
+    label="Wasserstein autoregression"
+)
+
+plt.plot(
+    comparison["date"],
+    comparison["moment_gp_w2"],
+    marker="o",
+    label="Conventional GP (moments)"
 )
 
 plt.xlabel(

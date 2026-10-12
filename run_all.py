@@ -110,7 +110,7 @@ def main():
     bl_out.to_csv(os.path.join(ROOT, "05_baselines/results/baseline_predictions.csv"), index=False)
     print("  Wrote 05_baselines/results/baseline_predictions.csv\n")
 
-    print("### DAY 5b: persistence benchmark (the model to beat, per Sven's review) ###")
+    print("### DAY 5b: persistence benchmark ###")
     y_persistence_all = y_all[:-1]
     y_persistence_train, y_persistence_test = y_persistence_all[:n_train], y_persistence_all[n_train:]
     persistence = PersistenceForecaster().fit(y_persistence_train, y_train=y[:n_train])

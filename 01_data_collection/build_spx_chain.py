@@ -6,9 +6,7 @@ from datetime import date, timedelta
 from dotenv import load_dotenv
 
 # Load VolForge / ThetaData configuration
-load_dotenv(
-    r"C:\Users\MY PC\Downloads\VolForge\.env"
-)
+load_dotenv()
 
 import pandas as pd
 
@@ -31,9 +29,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 OUT_DIR = ROOT / "01_data_collection" / "data"
 RAW_DIR = OUT_DIR / "raw"
+RAW_RESPONSE_DIR = RAW_DIR / "api_responses"
 
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 RAW_DIR.mkdir(parents=True, exist_ok=True)
+RAW_RESPONSE_DIR.mkdir(parents=True, exist_ok=True)
 
 OUTPUT_FILE = OUT_DIR / "option_chains_spx.csv"
 
@@ -79,6 +79,7 @@ print()
 all_rows = []
 
 successful_dates = []
+filter_diagnostics = []
 
 
 for value_date in dates:
@@ -102,7 +103,18 @@ for value_date in dates:
         if options is None or options.is_empty():
 
             print("  No option data.")
+            filter_diagnostics.append({
+                "date": value_date,
+                "raw_rows": 0,
+                "dte_rows": 0,
+                "valid_quote_rows": 0,
+                "clean_rows": 0,
+                "missing_quote_timestamp_rows": 0,
+            })
             continue
+
+        raw_options = options.to_pandas()
+        raw_rows = len(raw_options)
 
 
         # ----------------------------------------------------
@@ -115,19 +127,41 @@ for value_date in dates:
             value_date,
         )
 
+        response_id = pd.Timestamp.now(
+            tz="UTC"
+        ).strftime("%Y%m%dT%H%M%S%fZ")
+
+        raw_options.to_parquet(
+            RAW_RESPONSE_DIR
+            / f"SPX_options_{value_date}_{response_id}.parquet",
+            index=False,
+        )
+
+        if index_data is not None:
+            raw_index = (
+                index_data.to_pandas()
+                if hasattr(index_data, "to_pandas")
+                else pd.DataFrame(index_data)
+            )
+            raw_index.to_parquet(
+                RAW_RESPONSE_DIR
+                / f"SPX_index_{value_date}_{response_id}.parquet",
+                index=False,
+            )
+
 
         # ----------------------------------------------------
         # CONVERT TO PANDAS
         # ----------------------------------------------------
 
-        pdf = options.to_pandas()
+        pdf = raw_options.copy()
 
 
         # ----------------------------------------------------
         # PRESERVE ORIGINAL THETADATA FIELDS
         # ----------------------------------------------------
 
-        # Explicit research-standard names requested by Sven
+        # Explicit research-standard names.
         pdf["expiry"] = pd.to_datetime(
             pdf["expiration"]
         ).dt.date
@@ -160,7 +194,19 @@ for value_date in dates:
         if pdf.empty:
 
             print("  No contracts in DTE range.")
+            filter_diagnostics.append({
+                "date": value_date,
+                "raw_rows": raw_rows,
+                "dte_rows": 0,
+                "valid_quote_rows": 0,
+                "clean_rows": 0,
+                "missing_quote_timestamp_rows": int(
+                    raw_options.get("timestamp", pd.Series(index=raw_options.index, dtype=object)).isna().sum()
+                ),
+            })
             continue
+
+        dte_rows = len(pdf)
 
 
         # ----------------------------------------------------
@@ -184,10 +230,24 @@ for value_date in dates:
             & (pdf["ask"] >= pdf["bid"])
         ].copy()
 
+        valid_quote_rows = len(pdf)
+
 
         if pdf.empty:
 
             print("  No valid quotes.")
+            timestamp = raw_options.get(
+                "timestamp",
+                pd.Series(index=raw_options.index, dtype=object),
+            )
+            filter_diagnostics.append({
+                "date": value_date,
+                "raw_rows": raw_rows,
+                "dte_rows": dte_rows,
+                "valid_quote_rows": 0,
+                "clean_rows": 0,
+                "missing_quote_timestamp_rows": int(timestamp.isna().sum()),
+            })
             continue
 
 
@@ -227,6 +287,15 @@ for value_date in dates:
             if field not in pdf.columns:
                 pdf[field] = pd.NaT
 
+        filter_diagnostics.append({
+            "date": value_date,
+            "raw_rows": raw_rows,
+            "dte_rows": dte_rows,
+            "valid_quote_rows": valid_quote_rows,
+            "clean_rows": len(pdf),
+            "missing_quote_timestamp_rows": int(pdf["timestamp"].isna().sum()),
+        })
+
 
         # ----------------------------------------------------
         # KEEP CLEAN RESEARCH SCHEMA
@@ -258,22 +327,6 @@ for value_date in dates:
 
 
         pdf = pdf[keep].copy()
-
-
-        # ----------------------------------------------------
-        # SAVE RAW RESPONSE SEPARATELY
-        #
-        # This is intentionally NOT committed to Git.
-        # ----------------------------------------------------
-
-        raw_file = RAW_DIR / (
-            f"SPX_options_{value_date}.parquet"
-        )
-
-        pdf.to_parquet(
-            raw_file,
-            index=False,
-        )
 
 
         # ----------------------------------------------------
@@ -354,6 +407,11 @@ print(
 
 chain.to_csv(
     OUTPUT_FILE,
+    index=False,
+)
+
+pd.DataFrame(filter_diagnostics).to_csv(
+    OUT_DIR / "spx_collection_diagnostics.csv",
     index=False,
 )
 

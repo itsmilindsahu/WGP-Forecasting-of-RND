@@ -26,6 +26,7 @@ creds.txt
 # Local generated datasets
 01_data_collection/data/option_chains_spx.csv
 01_data_collection/data/option_chains_spx_20d.csv
+01_data_collection/data/spx_collection_diagnostics.csv
 01_data_collection/data/spx_iv_20d.csv
 01_data_collection/data/spx_30d_smiles.csv
 01_data_collection/data/svi_30d_curves.csv
@@ -37,6 +38,12 @@ creds.txt
 04_gp_model/results/
 05_baselines/results/
 06_evaluation/results/
+
+# Local-only research reports and generated market-data visualizations
+07_writeup/spx_pilot_results/
+07_writeup/results_memo.md
+07_writeup/docs/index.html
+07_writeup/spx_pilot_results/EMAIL_TO_SVEN.md
 
 # Temporary / OS files
 *.tmp

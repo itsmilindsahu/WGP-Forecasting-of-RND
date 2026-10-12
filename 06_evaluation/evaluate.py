@@ -77,7 +77,7 @@ def run_evaluation(rnd_path: str, n_quantiles: int = 200):
     baseline = MomentLinearBaseline().fit(X_moments[:n_train], y[:n_train])
     bl_mean, bl_std = baseline.predict(X_moments[n_train:])
 
-    # ---- Persistence (Day 5b) ---- the model to beat, per Sven's review:
+    # ---- Persistence benchmark ----
     # y_hat_{t+1} = y_t, i.e. today's realized variance, unchanged.
     y_persistence = y_all[:-1]  # aligned with y = y_all[1:], same as X_Q/X_moments
     persistence = PersistenceForecaster().fit(y_persistence[:n_train], y[:n_train])
@@ -114,7 +114,7 @@ def run_evaluation(rnd_path: str, n_quantiles: int = 200):
     # forecast the mean, so this is the honest, explicitly-stated choice)
     u = np.linspace(1e-4, 1 - 1e-4, n_quantiles)
     Q_baseline_forecast = []
-    # no-forecast diagnostic (per Sven's review): Gaussian fitted to *today's*
+    # no-forecast diagnostic: Gaussian fitted to *today's*
     # own realized mean/variance, scored against *tomorrow's* true density.
     # This involves zero forecasting -- it isolates the cost of imposing a
     # Gaussian shape from any actual forecast skill, and is what the
@@ -141,11 +141,11 @@ def run_evaluation(rnd_path: str, n_quantiles: int = 200):
 
     def w2_rowwise_shape_only(A, B):
         """W2 after removing each side's own mean -- isolates shape error
-        from the mean-shift component (per Sven's review: on this data W2 is
+        from the mean-shift component (on this data W2 is
         ~95% mean shift, so the raw number barely tests the Wasserstein
         kernel's actual selling point). Reported alongside the raw W2, not
-        as a replacement -- a full re-derivation needs real data (Day 4 of
-        Sven's list) and is left as a next step."""
+        as a replacement -- a full re-derivation needs more real data and is
+        left as a next step."""
         A_c = A - A.mean(axis=1, keepdims=True)
         B_c = B - B.mean(axis=1, keepdims=True)
         return np.sqrt(np.trapezoid((A_c - B_c) ** 2, u, axis=1))

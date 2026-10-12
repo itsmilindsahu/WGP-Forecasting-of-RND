@@ -15,6 +15,7 @@ from wasserstein_kernel import (
     density_to_quantile,
     wasserstein2_from_quantiles,
     build_kernel_from_densities,
+    stable_kernel_weights,
 )
 
 
@@ -54,7 +55,7 @@ def check_psd(n_dists=30, seed=0):
         grids.append(x)
         densities.append(gaussian_density(x, mu, sigma))
 
-    Q, W2, K = build_kernel_from_densities(grids, densities, gamma=0.5)
+    Q, W2, K, _ = build_kernel_from_densities(grids, densities, gamma=0.5)
     eigvals = np.linalg.eigvalsh(K)
     min_eig = eigvals.min()
 
@@ -65,13 +66,29 @@ def check_psd(n_dists=30, seed=0):
     return min_eig > -1e-6, K, W2
 
 
+def check_stable_weights():
+    normalized = stable_kernel_weights(np.array([0.2, 0.3, 0.5]))
+    fallback = stable_kernel_weights(np.array([0.0, 0.0, 0.0]), nearest_index=2)
+    underflow = stable_kernel_weights(np.exp(-np.array([1e4, 2e4, 3e4])), nearest_index=0)
+
+    return (
+        np.isclose(normalized.sum(), 1.0)
+        and np.isclose(fallback.sum(), 1.0)
+        and fallback[2] == 1.0
+        and np.isclose(underflow.sum(), 1.0)
+        and underflow[0] == 1.0
+    )
+
+
 if __name__ == "__main__":
     ok1 = check_closed_form_w2()
     ok2, K, W2 = check_psd()
+    ok3 = check_stable_weights()
 
     print("\n=== Summary ===")
     print(f"Closed-form W2 check: {'PASS' if ok1 else 'FAIL'}")
     print(f"PSD check:            {'PASS' if ok2 else 'FAIL'}")
+    print(f"Stable weights check: {'PASS' if ok3 else 'FAIL'}")
 
-    if ok1 and ok2:
+    if ok1 and ok2 and ok3:
         print("\nWasserstein kernel validated on synthetic data. Ready for Day 4.")

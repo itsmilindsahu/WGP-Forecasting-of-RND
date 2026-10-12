@@ -1,5 +1,5 @@
 """
-Day 5b — Persistence benchmark (per Sven's review, 2026).
+Persistence benchmark.
 
 The natural null model for any daily forecasting problem is the random walk:
 predict tomorrow = today, unchanged. Neither the Wasserstein-GP nor the
