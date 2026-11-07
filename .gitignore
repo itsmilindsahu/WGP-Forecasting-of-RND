@@ -16,6 +16,9 @@ creds.txt
 # ThetaData / raw market data
 01_data_collection/data/raw/
 01_data_collection/data/raw/**
+01_data_collection/data/pre_run_backup_*/
+01_data_collection/data/*chain*.csv
+01_data_collection/data/*chain*.parquet
 **/theta_eod/
 **/*theta*.parquet
 
@@ -27,12 +30,28 @@ creds.txt
 01_data_collection/data/option_chains_spx.csv
 01_data_collection/data/option_chains_spx_20d.csv
 01_data_collection/data/spx_collection_diagnostics.csv
+01_data_collection/data/spx_collection_retry_diagnostics.csv
+01_data_collection/data/forward_estimates_by_expiry.csv
+01_data_collection/data/sofr_history.csv
+01_data_collection/data/sofr_rates_clean.csv
+01_data_collection/data/spxw_30d_expiry_schedule.csv
+01_data_collection/data/spx_index_history.csv
+01_data_collection/data/spx_collection_run.log
+01_data_collection/data/spx_iv_run.log
+01_data_collection/data/spx_30d_smiles_run.log
+01_data_collection/data/svi_30d_run.log
 01_data_collection/data/spx_iv_20d.csv
+01_data_collection/data/spx_iv.csv
+01_data_collection/data/spx_iv_diagnostics.csv
+01_data_collection/data/sofr_rates.csv
 01_data_collection/data/spx_30d_smiles.csv
+01_data_collection/data/spx_30d_smile_diagnostics.csv
 01_data_collection/data/svi_30d_curves.csv
 01_data_collection/data/svi_30d_params.csv
 02_rnd_extraction/data/rnd_30d.csv
 02_rnd_extraction/data/rnd_30d_diagnostics.csv
+02_rnd_extraction/data/rnd_30d_run.log
+03_wasserstein_kernel/wasserstein_kernel_run.log
 
 # Generated model outputs
 04_gp_model/results/
@@ -62,3 +81,19 @@ Update.zip
 
 # Archived old/synthetic project artifacts
 archive/
+
+# Explicitly approved derived Phase 4 outputs and inputs for this publication
+!06_evaluation/results/
+!06_evaluation/results/phase4_*.csv
+!06_evaluation/results/pipeline_failure_report.txt
+!02_rnd_extraction/data/
+!02_rnd_extraction/data/rnd_30d.csv
+!01_data_collection/data/
+!01_data_collection/data/spx_30d_smiles.csv
+!01_data_collection/data/svi_30d_params.csv
+
+# Documentation figures
+!docs/
+!docs/figures/
+!docs/figures/*
+!docs/figures/**

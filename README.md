@@ -32,8 +32,9 @@ For the kernel $k(F,G)=\exp(-\gamma W_2(F,G)^2)$, $\gamma$ is an inverse squared
 - Linear baseline using distribution moments
 - Wasserstein autoregression on quantile coordinates
 - Conventional RBF Gaussian process using distribution moments
+- Quantile-change forecasts with a shared valid-quantile projection, including PCA, moment, SVI, and Wasserstein-input comparators
 
-The distribution-valued models are compared with a common chronological holdout using full-density W2 error. Results should be interpreted in light of the small pilot sample and short holdout.
+The distribution-valued models are compared with common chronological evaluation pairs using full-density W2 error. The Phase 4 quantile-change evaluator uses rolling-origin evaluation as primary, a fixed 80/20 split as secondary, and forward-chaining training-only CV to select kernel and regularization settings. All generated scores are descriptive pipeline results, not claims of model outperformance.
 
 ## Data and Reproducibility
 
@@ -56,7 +57,7 @@ Configure the ThetaData/VolForge client locally before running the collection st
 - `03_wasserstein_kernel/`: quantile conversion, W2 distances, kernels, and numerical checks
 - `04_gp_model/`: Wasserstein-kernel GP and full-distribution forecasting
 - `05_baselines/`: moment, persistence, Wasserstein autoregression, and moment-GP forecasts
-- `06_evaluation/`: shared held-out comparison and evaluation utilities
+- `06_evaluation/`: shared held-out comparison, quantile-change models, and evaluation utilities
 - `07_writeup/`: report-generation source; data-backed outputs are local-only
 
 See [CODEBASE_GUIDE.md](CODEBASE_GUIDE.md) for key modules and execution order.

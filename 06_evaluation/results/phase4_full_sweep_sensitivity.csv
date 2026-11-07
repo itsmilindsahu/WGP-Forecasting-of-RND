@@ -1,0 +1,841 @@
+evaluation,analysis_role,horizon_sessions,model,gamma_multiplier,actual_gamma,regularization_noise_ratio,mean_squared_w2,skill_vs_persistence_squared_w2,outer_split,training_condition
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,1e-06,8.828929218134357e-06,0.0282682520372079,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,0.0001,8.674934061269029e-06,0.0452173043244535,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,0.01,8.534304689633382e-06,0.0606952883175445,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,0.1,8.497160645270908e-06,0.064783445132826,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,1.0,8.494029526328357e-06,0.0651280631049439,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.1924567736648711,1e-06,8.848415738842866e-06,0.0261235218709608,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.1924567736648711,0.0001,8.989721714915529e-06,0.0105710692762971,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.1924567736648711,0.01,8.722932122127031e-06,0.0399345301143522,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.1924567736648711,0.1,8.60635448407794e-06,0.052765326374689,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.1924567736648711,1.0,8.506171849529628e-06,0.0637916517851582,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,1e-06,9.234850263986145e-06,-0.0164083285168934,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,0.0001,8.938774622034265e-06,0.0161784205638629,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,0.01,8.888198010530434e-06,0.0217449958402516,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,0.1,8.88464516214194e-06,0.0221360303008867,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,1.0,8.729148762287879e-06,0.0392503127578975,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,1e-06,1.0976399894012863e-05,-0.2080871860927189,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,0.0001,9.972490527068783e-06,-0.0975946699750136,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,0.01,9.04232661936208e-06,0.0047812555303371,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,0.1,8.948715191774506e-06,0.0150843391672662,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,1.0,8.815177942816633e-06,0.0297817482348854,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,1e-06,0.0001568821595831,-16.26680228025392,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,0.0001,1.6268574302855727e-05,-0.7905557688361549,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,0.01,1.1201434590911714e-05,-0.2328550094569212,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,0.1,9.832427981800978e-06,-0.0821790721630331,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,1.0,8.98903952160677e-06,0.0106461530016267,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,1e-06,8.728488217936568e-06,0.0393230137504243,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.0001,8.72848816253949e-06,0.0393230198475509,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.01,8.72848262314593e-06,0.0393236295256277,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.1,8.728432293497069e-06,0.039329168919642,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,1.0,8.727931810289542e-06,0.0393842532237586,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0332185490554817,1e-06,7.836209642304548e-06,0.1375291946526052,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0332185490554817,0.0001,7.844081438770807e-06,0.1366628070816126,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0332185490554817,0.01,7.5770674975065985e-06,0.166050960215989,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0332185490554817,0.1,7.561349620612771e-06,0.1677809049930898,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0332185490554817,1.0,7.664883141065206e-06,0.1563857735659012,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.0996556471664452,1e-06,1.1552738265421151e-05,-0.2715202796457046,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.0996556471664452,0.0001,8.103996443618666e-06,0.1080559788080547,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.0996556471664452,0.01,7.810479833262235e-06,0.1403610751329789,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.0996556471664452,0.1,7.634813854819737e-06,0.1596952666382081,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.0996556471664452,1.0,7.5700439212515585e-06,0.1668239907684644,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,1e-06,4.150330757413763e-05,-3.567947099679694,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,0.0001,1.4327159317969445e-05,-0.5768792821213427,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,0.01,8.408405707365579e-06,0.0745520126250116,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,0.1,8.02392531786616e-06,0.1168687864618998,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,1.0,7.723536358744992e-06,0.1499302689026002,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,1e-06,0.0001234800564267,-12.590491905142324,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,0.0001,3.5561728476352165e-05,-2.9140035806296813,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,0.01,1.0201447286102351e-05,-0.1227941642926946,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,0.1,8.614763735834413e-06,0.0518397852692521,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,1.0,8.07749282565597e-06,0.1109730264334144,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,1e-06,0.002828166608982,-310.27435893713624,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,0.0001,0.0001291469762163,-13.21420580483217,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,0.01,1.5137653165710375e-05,-0.666084052475681,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,0.1,1.0231706305252138e-05,-0.1261245397939125,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,1.0,8.801196518644352e-06,0.031320575131587,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.1001827259381528,1e-06,8.524431890919917e-06,0.0617819106829627,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.1001827259381528,0.0001,8.352580775574026e-06,0.0806962298012335,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.1001827259381528,0.01,8.601934630691803e-06,0.0532517853495587,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.1001827259381528,0.1,8.558107046549113e-06,0.0580755475403899,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.1001827259381528,1.0,8.604714424680869e-06,0.0529458349896415,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,1e-06,1.270276270226552e-05,-0.3980945480087761,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,0.0001,9.149103381749598e-06,-0.0069708343769547,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,0.01,8.357266761825828e-06,0.0801804796463858,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,0.1,8.458636276182903e-06,0.0690235235826747,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,1.0,8.462189255756142e-06,0.0686324746835524,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,1e-06,0.0001122307157725,-11.3523642469282,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,0.0001,1.2215296701288364e-05,-0.3444429468350998,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,0.01,8.963554672521117e-06,0.013451072639866,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,0.1,8.488809729049906e-06,0.0657025656984159,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,1.0,8.250999689016191e-06,0.0918764719757951,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,1e-06,0.0007073749157284,-76.85526946053217,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,0.0001,2.551608763972701e-05,-1.808357823550783,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,0.01,1.0214209625226724e-05,-0.124198815955316,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,0.1,8.977449383589799e-06,0.0119217895817941,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,1.0,8.258508135266417e-06,0.0910500755443648,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.01827259381528,1e-06,0.0001789002702284,-18.690164911849845,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.01827259381528,0.0001,4.786849686913463e-05,-4.268514106949064,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.01827259381528,0.01,1.3950614341807056e-05,-0.5354358976709002,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.01827259381528,0.1,1.04801883233561e-05,-0.1534730279088174,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.01827259381528,1.0,8.904838746688243e-06,0.0199134791031142,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,1e-06,1.9161260779714597e-05,-1.1089313291128031,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,0.0001,7.666503285876606e-06,0.1562074567949046,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,0.01,7.168603967990882e-06,0.2110073722234727,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,0.1,7.20477848263201e-06,0.2070259240234205,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,1.0,7.336912466696823e-06,0.1924829614366483,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,1e-06,2.115742205635583e-05,-1.32863331546264,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,0.0001,8.991350141752036e-06,0.0103918409670454,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,0.01,7.315494954971185e-06,0.1948402208043438,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,0.1,7.234490284353554e-06,0.2037557764994493,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,1.0,7.300021493283336e-06,0.1965432646957916,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,1e-06,0.0002966300484219,-31.64776830007159,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,0.0001,1.6722345200369137e-05,-0.8404988113638565,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,0.01,7.796879587721058e-06,0.1418579486547765,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,0.1,7.423605336286841e-06,0.1829413498072802,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,1.0,7.349433514538362e-06,0.1911048668336932,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,1e-06,0.0012473292926431,-136.2838589911623,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,0.0001,6.609207463039533e-05,-6.274241940366636,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,0.01,9.431773452084948e-06,-0.0380821361846022,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,0.1,7.961295934775207e-06,0.1237619168066079,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,1.0,7.704815042782617e-06,0.1519907789185732,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,1e-06,0.0006629655959567,-71.96748014187379,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,0.0001,0.0001729488951399,-18.03514322409304,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,0.01,1.5251822688840903e-05,-0.6786498062080628,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,0.1,9.409874820337123e-06,-0.0356719236683891,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,1.0,8.302812456603064e-06,0.0861738425889191,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.0647996451077605,1e-06,1.456695709473669e-05,0.1130335691899426,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.0647996451077605,0.0001,1.408895087162365e-05,0.142138856647181,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.0647996451077605,0.01,1.3628687733029063e-05,0.1701637866732451,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.0647996451077605,0.1,1.3570744141284065e-05,0.1736919099747786,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.0647996451077605,1.0,1.3764507367673044e-05,0.161893874447196,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.1943989353232816,1e-06,1.5624566772172148e-05,0.0486368475764737,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.1943989353232816,0.0001,1.5174945900508411e-05,0.0760137813563764,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.1943989353232816,0.01,1.4418033919610528e-05,0.1221013419751237,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.1943989353232816,0.1,1.3989695204357131e-05,0.1481824280231731,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.1943989353232816,1.0,1.362203718976366e-05,0.1705687311365741,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,1e-06,1.75956634123624e-05,-0.0713811177653018,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,0.0001,1.6669675989546097e-05,-0.01499873439938,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,0.01,1.572654133708464e-05,0.0424277254320472,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,0.1,1.5135729304739807e-05,0.0784016379108498,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,1.0,1.450240431941616e-05,0.1169641186075436,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,1e-06,4.552028367376028e-05,-1.7716813660530857,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,0.0001,2.651359381581705e-05,-0.6143843578189614,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,0.01,1.8190628908705265e-05,-0.1076079302227257,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,0.1,1.667313728228835e-05,-0.015209488810862,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,1.0,1.5490635923313166e-05,0.056791753657081,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,1e-06,0.0008029160307763,-47.88869799137326,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,0.0001,9.01186527039399e-05,-4.487228335910022,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,0.01,4.154020818527728e-05,-1.5293388282522509,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,0.1,2.685194732501336e-05,-0.6349863409546395,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,1.0,1.788901233020945e-05,-0.0892428194887731,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,1e-06,1.4010106918123245e-05,0.1469395806125503,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.0001,1.4010107027811714e-05,0.1469395739337368,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.01,1.4010117997069989e-05,0.1469389060273377,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.1,1.401021775496228e-05,0.1469328318760173,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,1.0,1.4011219019873391e-05,0.1468718659269361,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.0334454475590677,1e-06,1.4329513121348116e-05,0.1274912786637982,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.0334454475590677,0.0001,1.356432619582654e-05,0.1740826918064661,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.0334454475590677,0.01,1.3046070454556858e-05,0.2056387293571553,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.0334454475590677,0.1,1.321622525928174e-05,0.1952781853636166,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.0334454475590677,1.0,1.319671248913392e-05,0.1964662970591938,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.1003363426772032,1e-06,2.317189554098344e-05,-0.4109119254916753,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.1003363426772032,0.0001,1.442447670446659e-05,0.1217090476990375,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.1003363426772032,0.01,1.3767121309190214e-05,0.1617347143451409,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.1003363426772032,0.1,1.3309195119389491e-05,0.1896173500596891,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.1003363426772032,1.0,1.3187865686996504e-05,0.1970049693752358,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,1e-06,8.427062513779506e-05,-4.13114819481477,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,0.0001,2.7147783871224864e-05,-0.6529995117074523,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,0.01,1.518287250296493e-05,0.0755311390142879,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,0.1,1.4346834637449106e-05,0.1264365900824839,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,1.0,1.356526118960364e-05,0.1740257610358246,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,1e-06,0.0019704726205646,-118.97996945447716,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,0.0001,9.88591175885682e-05,-5.01942589041099,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,0.01,1.7483423712071175e-05,-0.0645469625113905,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,0.1,1.589986220926053e-05,0.0318744029791184,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,1.0,1.4526488149443498e-05,0.1154976799669504,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,1e-06,0.0040293765446098,-244.3444263561155,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,0.0001,0.0003513645568306,-20.394211904272996,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,0.01,4.033388654154366e-05,-1.4558871941331444,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,0.1,2.02074256416742e-05,-0.2304085253145571,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,1.0,1.5699016855333037e-05,0.044103661674623,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.1010083992774614,1e-06,3.42844966884015e-05,-1.0875463188408865,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.1010083992774614,0.0001,2.709560065146104e-05,-0.6498221312922372,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.1010083992774614,0.01,1.8419318917451696e-05,-0.12153262015629,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.1010083992774614,0.1,1.6986234701394336e-05,-0.0342736556450335,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.1010083992774614,1.0,1.618264042929828e-05,0.0146563397345765,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,1e-06,5.544050923935689e-05,-2.375713286070693,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,0.0001,2.672274791211563e-05,-0.627119526947062,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,0.01,2.292861368128085e-05,-0.3960987533667151,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,0.1,1.859402936675191e-05,-0.1321705524734673,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,1.0,1.648264117115032e-05,-0.0036103844350867,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,1e-06,0.0001237690647212,-6.53616591759893,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,0.0001,3.100782445408712e-05,-0.8880332525427546,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,0.01,2.35653489921364e-05,-0.4348688851359878,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,0.1,2.145403365904037e-05,-0.3063131536176078,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,1.0,1.7568071719986546e-05,-0.0697010891397311,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,1e-06,0.0001576348084632,-8.598214817602894,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,0.0001,5.322276244241303e-05,-2.240677056600609,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,0.01,2.644899846486725e-05,-0.6104512160168505,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,0.1,2.0880597350557223e-05,-0.2713972303726655,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,1.0,1.7533905494204086e-05,-0.0676207442098026,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,1e-06,0.0005200299969836,-30.664070082654646,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,0.0001,8.342363251672887e-05,-4.079575720402734,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,0.01,2.7520221733670085e-05,-0.6756768546420946,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,0.1,1.9246627270467083e-05,-0.1719065405489395,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,1.0,1.6726391525125277e-05,-0.0184520826750005,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,1e-06,2.6028953365415325e-05,-0.5848751193607584,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,0.0001,1.399939957469446e-05,0.1475915392970389,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,0.01,1.2531772309575502e-05,0.2369537931044885,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,0.1,1.2514282828858413e-05,0.2380187088715544,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,1.0,1.275008255005904e-05,0.223661116154068,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,1e-06,5.661982581382985e-05,-2.4475206104180245,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,0.0001,1.6423028894283056e-05,1.9343318043318906e-05,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,0.01,1.30030612215704e-05,0.2082575155336904,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,0.1,1.2705840775599053e-05,0.2263549504621034,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,1.0,1.2763578976963631e-05,0.2228393331610655,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,1e-06,0.0002551475727579,-14.535662696551128,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,0.0001,2.672667752303204e-05,-0.6273587967510665,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,0.01,1.3682249250835616e-05,0.1669024831649914,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,0.1,1.3304621682292483e-05,0.1898958217509343,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,1.0,1.2777480237309188e-05,0.2219929002930155,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,1e-06,0.0025093827505906,-151.7936306362811,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,0.0001,6.81831493059006e-05,-3.1515990050588565,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,0.01,1.6997221245144902e-05,-0.0349426145383702,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,0.1,1.4032879681770902e-05,0.145552971400971,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,1.0,1.3368559088425233e-05,0.1860027415047306,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.5988190229,1e-06,0.0008731422782888,-52.164699060111616,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.5988190229,0.0001,0.0001676588405069,-9.208567402997836,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.5988190229,0.01,2.885526304687213e-05,-0.7569660917046959,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.5988190229,0.1,1.7691009520574637e-05,-0.0771866402737189,,
+fixed_80_20,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.5988190229,1.0,1.4597978914004412e-05,0.1111446838081722,,
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.07311804142723763,1e-06,1.3238629645782754e-05,-0.1787003710705446,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.07311804142723763,0.0001,1.2241492763183263e-05,-0.0899203655129035,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.07311804142723763,0.01,1.2035616736789504e-05,-0.0715902093564349,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.07311804142723763,0.1,1.1959168559045135e-05,-0.06478365173786282,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.07311804142723763,1.0,1.1899821749530492e-05,-0.05949971312273239,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.21935412428171286,1e-06,1.4926234296491372e-05,-0.3289561211922567,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.21935412428171286,0.0001,1.4998549008542149e-05,-0.33539465601109764,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.21935412428171286,0.01,1.248936207433717e-05,-0.11198939054429569,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.21935412428171286,0.1,1.211631535583131e-05,-0.07877520468861854,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.21935412428171286,1.0,1.1895307723816083e-05,-0.059097807190853,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.7311804142723762,1e-06,3.745133894567349e-05,-2.3344770790847216,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.7311804142723762,0.0001,1.3932870647726254e-05,-0.24051206521850088,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.7311804142723762,0.01,1.4839307910876046e-05,-0.3212166371427694,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.7311804142723762,0.1,1.3833067415815554e-05,-0.2316260921506874,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.7311804142723762,1.0,1.2238055225808022e-05,-0.08961430463740672,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.193541242817129,1e-06,0.0003292853771519888,-28.31789819808081,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.193541242817129,0.0001,4.930009741835409e-05,-3.3894303772852554,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.193541242817129,0.01,1.4202162259079227e-05,-0.26448842309849097,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.193541242817129,0.1,1.430627012702157e-05,-0.27375765910390304,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.193541242817129,1.0,1.292620604926726e-05,-0.15088376021299132,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.311804142723762,1e-06,0.0026450413160264206,-234.50104989079662,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.311804142723762,0.0001,7.289749751079305e-05,-5.490423077395898,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.311804142723762,0.01,1.8582666169031284e-05,-0.6545062514000224,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.311804142723762,0.1,1.5236040749447593e-05,-0.3565397148745435,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.311804142723762,1.0,1.315082812553703e-05,-0.17088296947662962,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,1e-06,1.3407855962313268e-05,-0.19376742313155315,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.0001,1.3407854558099235e-05,-0.19376729810746474,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.01,1.340771414297503e-05,-0.19375479625769376,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.1,1.3406438211901858e-05,-0.19364119383284706,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,1.0,1.339373517398894e-05,-0.19251017983046892,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.034892375914951014,1e-06,1.1361099705952774e-05,-0.011534637457123909,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.034892375914951014,0.0001,1.0002351405631409e-05,0.10944141283146858,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.034892375914951014,0.01,1.0438435318376563e-05,0.07061471524087992,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.034892375914951014,0.1,1.1097110711942385e-05,0.011969602296097781,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.034892375914951014,1.0,1.1691662806894197e-05,-0.04096629769440563,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.10467712774485302,1e-06,1.6976489823348875e-05,-0.5115004641459255,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.10467712774485302,0.0001,1.1227589704517642e-05,0.0003524152397048619,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.10467712774485302,0.01,1.0266877631777673e-05,0.08588934065639897,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.10467712774485302,0.1,1.0493478198864303e-05,0.06571397661523537,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.10467712774485302,1.0,1.1104112332065984e-05,0.011346213587553389,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3489237591495101,1e-06,0.00020836866057664713,-17.55208764899659,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3489237591495101,0.0001,1.8136385491987958e-05,-0.6147716856853487,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3489237591495101,0.01,1.1318751021635197e-05,-0.0077641256099720835,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3489237591495101,0.1,1.093281129918447e-05,0.026597987859109495,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3489237591495101,1.0,1.0870894416905064e-05,0.0321107527049419,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.0467712774485303,1e-06,0.0006114712443864504,-53.442295157556075,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.0467712774485303,0.0001,8.076341862883965e-05,-6.1907647584253,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.0467712774485303,0.01,1.3709418150965748e-05,-0.22061698937640628,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.0467712774485303,0.1,1.2377420127831801e-05,-0.10202264795728855,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.0467712774485303,1.0,1.1352797117466005e-05,-0.01079541713054577,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.489237591495101,1e-06,0.010081412443434794,-896.5977805812544,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.489237591495101,0.0001,0.0003087941911724701,-26.49346703231976,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.489237591495101,0.01,2.1462855526457534e-05,-0.9109436890492593,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.489237591495101,0.1,1.4721372245835952e-05,-0.31071624428756994,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.489237591495101,1.0,1.2237915230156195e-05,-0.08960184013532668,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.05398051127059571,1e-06,2.1955798606951967e-05,-0.9548328382619602,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.05398051127059571,0.0001,1.4152814433565237e-05,-0.26009474325388604,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.05398051127059571,0.01,1.244183440851443e-05,-0.10775776847763963,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.05398051127059571,0.1,1.1872630823593661e-05,-0.057078771125786076,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.05398051127059571,1.0,1.1620830859254653e-05,-0.03465978069073872,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.1619415338117871,1e-06,6.957850030151722e-05,-5.194916416447667,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.1619415338117871,0.0001,1.5822102383286167e-05,-0.4087196673136386,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.1619415338117871,0.01,1.3741043944882473e-05,-0.22343278950243528,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.1619415338117871,0.1,1.2436842618122904e-05,-0.10731332480452327,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.1619415338117871,1.0,1.1550175281190835e-05,-0.02836896673866507,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.5398051127059571,1e-06,0.00011924101366118101,-9.616614469159565,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.5398051127059571,0.0001,2.167814502386368e-05,-0.9301119728724307,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.5398051127059571,0.01,1.3285702084211165e-05,-0.1828914620012012,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.5398051127059571,0.1,1.2653871306777124e-05,-0.1266364573865404,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.5398051127059571,1.0,1.1600015915867165e-05,-0.032806523809089994,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,1.6194153381178713,1e-06,0.0002513398461033348,-21.378023843365686,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,1.6194153381178713,0.0001,4.14141544015993e-05,-2.6873060480461586,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,1.6194153381178713,0.01,1.5584574337665946e-05,-0.3875713760627082,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,1.6194153381178713,0.1,1.2113186906104743e-05,-0.07849666340812012,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,1.6194153381178713,1.0,1.0975768746262513e-05,0.022773274866457527,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,5.398051127059571,1e-06,0.00015670590289007557,-12.952297996667433,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,5.398051127059571,0.0001,4.4611493427987194e-05,-2.97198088204926,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,5.398051127059571,0.01,1.7207213482586304e-05,-0.5320429273792364,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,5.398051127059571,0.1,1.3297068867002937e-05,-0.1839035026317668,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,5.398051127059571,1.0,1.0997406878547156e-05,0.02084672542474042,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1735.0967405789515,1e-06,2.1114552633948292e-05,-0.8799325678357908,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1735.0967405789515,0.0001,1.0913236328352164e-05,0.028340843879791633,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1735.0967405789515,0.01,1.0094297903794845e-05,0.10125496344783436,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1735.0967405789515,0.1,1.0646164977487373e-05,0.052119521038187844,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1735.0967405789515,1.0,1.1092434834190276e-05,0.012385918711690369,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5205.290221736855,1e-06,5.4258635364972977e-05,-3.8309134215298615,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5205.290221736855,0.0001,1.3708305968478023e-05,-0.22051796629425557,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5205.290221736855,0.01,1.0072566619773272e-05,0.10318980664727595,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5205.290221736855,0.1,1.0305003752702209e-05,0.08249478441578784,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5205.290221736855,1.0,1.0749345557938477e-05,0.0429328460031525,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,17350.967405789514,1e-06,0.0004973230192012514,-43.279116718184994,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,17350.967405789514,0.0001,2.352159769466085e-05,-1.0942436394616384,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,17350.967405789514,0.01,1.1124548883177117e-05,0.009526646833092012,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,17350.967405789514,0.1,1.0851864109917524e-05,0.0338051146221473,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,17350.967405789514,1.0,1.0721233726443013e-05,0.04543578075559729,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,52052.902217368544,1e-06,0.00033768976932761047,-29.066182608256405,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,52052.902217368544,0.0001,8.422473420253446e-05,-6.4989427239903375,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,52052.902217368544,0.01,1.6084945987377473e-05,-0.43212192736361543,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,52052.902217368544,0.1,1.211452272039706e-05,-0.07861559753077207,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,52052.902217368544,1.0,1.1092738788454527e-05,0.0123588561671788,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,173509.67405789514,1e-06,0.0004011197623605235,-34.71366715351019,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,173509.67405789514,0.0001,0.00016768434590812555,-13.92976282538364,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,173509.67405789514,0.01,2.4763053108032417e-05,-1.204776526592803,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,173509.67405789514,0.1,1.4994408298998854e-05,-0.335025988255766,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,173509.67405789514,1.0,1.1996231779858756e-05,-0.06808357274894727,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0718951997817422,1e-06,0.0004226874589589256,-25.78490323444869,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0718951997817422,0.0001,5.9432254123632385e-05,-2.7661093130784096,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0718951997817422,0.01,2.047372488508087e-05,-0.29738114598026066,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0718951997817422,0.1,1.7664536032297023e-05,-0.1193681721048776,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0718951997817422,1.0,1.6286220331465488e-05,-0.03202691820483827,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.2156855993452266,1e-06,0.005056148591572775,-319.39855428365337,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.2156855993452266,0.0001,0.00027680575428139963,-16.54065607110038,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.2156855993452266,0.01,2.458293135146386e-05,-0.5577737723513561,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.2156855993452266,0.1,1.8459965894235712e-05,-0.16977305502781515,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.2156855993452266,1.0,1.649130701819548e-05,-0.04502287288082085,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.718951997817422,1e-06,0.002302144180707802,-144.88251391201004,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.718951997817422,0.0001,0.00014648654590608155,-8.282574805760435,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.718951997817422,0.01,3.745174402353067e-05,-1.3732460435479603,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.718951997817422,0.1,2.0339863581930456e-05,-0.2888986088816867,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.718951997817422,1.0,1.6778479573584835e-05,-0.06322045349189054,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.156855993452266,1e-06,0.010638316798932186,-673.1299747539897,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.156855993452266,0.0001,0.00014648216328197962,-8.282297087176657,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.156855993452266,0.01,3.134517795292013e-05,-0.986284524275715,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.156855993452266,0.1,2.482872681309662e-05,-0.5733493649452679,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,2.156855993452266,1.0,1.8193673647107162e-05,-0.15289861998072474,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.18951997817422,1e-06,0.011127145847840659,-704.1061451978669,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.18951997817422,0.0001,0.00042566432418118837,-25.973541542092573,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.18951997817422,0.01,3.055951705874806e-05,-0.9364986823268666,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.18951997817422,0.1,2.4266998351646695e-05,-0.5377536968811392,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,7.18951997817422,1.0,1.81147648351601e-05,-0.14789831810862042,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,1e-06,1.8093812091448085e-05,-0.1465705824473713,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.0001,1.8093810500390738e-05,-0.14657048162508235,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.01,1.80936514005531e-05,-0.14656039976988322,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.1,1.8092205573861494e-05,-0.14646878047243872,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,1.0,1.807780020757999e-05,-0.14555593971095226,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0360189986972832,1e-06,4.7816810335083523e-05,-2.0300606527568075,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0360189986972832,0.0001,3.4696641164797187e-05,-1.1986603966165705,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0360189986972832,0.01,1.870814197176992e-05,-0.18549950273986981,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0360189986972832,0.1,1.506975950116115e-05,0.04505789928288628,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.0360189986972832,1.0,1.451190002994043e-05,0.08040839676835743,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.1080569960918496,1e-06,0.0001633362118876555,-9.350306207020429,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.1080569960918496,0.0001,4.053814046681431e-05,-1.5688251370940791,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.1080569960918496,0.01,2.2387838627079924e-05,-0.4186749063521651,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.1080569960918496,0.1,1.7320814688726095e-05,-0.09758720195298887,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.1080569960918496,1.0,1.4794369190247473e-05,0.06250886139019685,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.360189986972832,1e-06,0.0007117577644710311,-44.10274067434932,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.360189986972832,0.0001,0.0001377470318430025,-7.728768361934945,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.360189986972832,0.01,2.5370963955285652e-05,-0.6077099050460533,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.360189986972832,0.1,1.8314590707543892e-05,-0.16056090494931308,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.360189986972832,1.0,1.5673147480446438e-05,0.0068223465229533264,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.080569960918496,1e-06,0.0024194234555109146,-152.31427929900474,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.080569960918496,0.0001,0.00024784915330772157,-14.705731143380019,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.080569960918496,0.01,3.3590058991177776e-05,-1.1285383813706864,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.080569960918496,0.1,2.1843829528508652e-05,-0.3842020807334918,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,1.080569960918496,1.0,1.6805768612675583e-05,-0.06494970818330503,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.60189986972832,1e-06,0.0029928281127319795,-188.6498457614602,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.60189986972832,0.0001,0.00021120424364824835,-12.383612664441461,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.60189986972832,0.01,3.336745810689251e-05,-1.1144325851869796,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.60189986972832,0.1,2.309371014895197e-05,-0.4634046469881017,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.60189986972832,1.0,1.7820845344887486e-05,-0.12927319702019124,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.08323910846384107,1e-06,3.558623921003094e-05,-1.2550325388557289,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.08323910846384107,0.0001,1.714342727151701e-05,-0.08634649749334744,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.08323910846384107,0.01,1.5777007658933958e-05,0.00024092383879681378,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.08323910846384107,0.1,1.5478780610603155e-05,0.01913900671807156,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.08323910846384107,1.0,1.5579938131016658e-05,0.012728846354227552,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.24971732539152316,1e-06,4.218913714539199e-05,-1.6734456677930907,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.24971732539152316,0.0001,2.1505139933716993e-05,-0.3627399629660215,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.24971732539152316,0.01,1.627929766112169e-05,-0.03158824170438246,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.24971732539152316,0.1,1.5422328357150907e-05,0.022716279036037235,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.24971732539152316,1.0,1.5251259685377531e-05,0.033556576572143615,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.8323910846384106,1e-06,0.00015752742963279697,-8.982214683818915,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.8323910846384106,0.0001,2.865983718850561e-05,-0.8161195690543848,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.8323910846384106,0.01,1.7355741566231387e-05,-0.09980045199017917,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.8323910846384106,0.1,1.5705346493331212e-05,0.0047819560971582575,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,0.8323910846384106,1.0,1.5037598595443966e-05,0.047095874929688475,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,2.497173253915232,1e-06,0.0003310644475403441,-19.978926636657153,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,2.497173253915232,0.0001,6.912521216245138e-05,-3.380333694764092,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,2.497173253915232,0.01,1.8477130564947583e-05,-0.1708607476818651,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,2.497173253915232,0.1,1.626172143662117e-05,-0.0304744696666861,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,2.497173253915232,1.0,1.5109765617682356e-05,0.04252278749498084,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,8.323910846384106,1e-06,0.0004581389802188316,-28.03139895211051,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,8.323910846384106,0.0001,7.161260187160094e-05,-3.537954866752563,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,8.323910846384106,0.01,2.5611160387789475e-05,-0.6229306977748479,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,8.323910846384106,0.1,1.7675718214093337e-05,-0.12007676577383086,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,8.323910846384106,1.0,1.5752906160730034e-05,0.0017681901049578785,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,2235.0376560251357,1e-06,0.00011705095245845646,-6.417297032710099,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,2235.0376560251357,0.0001,3.704474139905353e-05,-1.3474550585501155,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,2235.0376560251357,0.01,1.972990013910551e-05,-0.25024638145848077,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,2235.0376560251357,0.1,1.5661886993038197e-05,0.007535902270136785,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,2235.0376560251357,1.0,1.4713965045505323e-05,0.06760391966770385,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,6705.112968075407,1e-06,0.00021534278241920035,-12.645864023365112,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,6705.112968075407,0.0001,5.0658726762613864e-05,-2.210147511021479,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,6705.112968075407,0.01,2.529526158824879e-05,-0.6029127895113384,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,6705.112968075407,0.1,1.836139760869868e-05,-0.16352696957120494,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,6705.112968075407,1.0,1.5006183217074455e-05,0.04908660792132602,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,22350.376560251356,1e-06,0.0007610870942290739,-47.22864681654641,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,22350.376560251356,0.0001,7.143574115397342e-05,-3.5267475382472506,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,22350.376560251356,0.01,2.943698271359267e-05,-0.865365808201888,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,22350.376560251356,0.1,2.2009738807259215e-05,-0.3947154373113666,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,22350.376560251356,1.0,1.6238303122080475e-05,-0.028990495454554788,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,67051.12968075406,1e-06,0.0005689565895557281,-35.05370084408633,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,67051.12968075406,0.0001,0.00020364410025373292,-11.90454070484417,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,67051.12968075406,0.01,3.395208165997875e-05,-1.151479071819355,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,67051.12968075406,0.1,2.3952330595190316e-05,-0.5178137974849184,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,67051.12968075406,1.0,1.760347195811006e-05,-0.11549865744686638,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,223503.76560251354,1e-06,0.00019375644019008721,-11.277978424827225,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,223503.76560251354,0.0001,0.00010125809816873219,-5.416533785586843,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,223503.76560251354,0.01,3.211074775452842e-05,-1.0347972317636525,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,223503.76560251354,0.1,2.3105945101886373e-05,-0.4641799527689572,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,223503.76560251354,1.0,1.7691979671967072e-05,-0.12110722354201697,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,1e-06,8.828929218134357e-06,0.028268252037207953,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,0.0001,8.674934061269029e-06,0.04521730432445359,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,0.01,8.534304689633382e-06,0.06069528831754456,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,0.1,8.497160645270908e-06,0.06478344513282608,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.1,0.0641522578882904,1.0,8.494029526328357e-06,0.0651280631049439,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.19245677366487118,1e-06,8.848415738842866e-06,0.026123521870960897,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.19245677366487118,0.0001,8.989721714915529e-06,0.01057106927629714,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.19245677366487118,0.01,8.722932122127031e-06,0.03993453011435222,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.19245677366487118,0.1,8.60635448407794e-06,0.052765326374689,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),0.3,0.19245677366487118,1.0,8.506171849529628e-06,0.06379165178515822,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,1e-06,9.234850263986143e-06,-0.016408328516893445,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,0.0001,8.938774622034265e-06,0.016178420563862983,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,0.01,8.888198010530434e-06,0.02174499584025169,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,0.1,8.88464516214194e-06,0.022136030300886733,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),1.0,0.641522578882904,1.0,8.729148762287879e-06,0.03925031275789759,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,1e-06,1.0976399894012863e-05,-0.20808718609271892,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,0.0001,9.972490527068785e-06,-0.09759466997501365,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,0.01,9.04232661936208e-06,0.004781255530337147,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,0.1,8.948715191774506e-06,0.015084339167266259,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),3.0,1.924567736648712,1.0,8.815177942816633e-06,0.02978174823488544,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,1e-06,0.0001568821595831199,-16.26680228025392,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,0.0001,1.6268574302855727e-05,-0.7905557688361549,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,0.01,1.1201434590911714e-05,-0.23285500945692128,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,0.1,9.832427981800978e-06,-0.0821790721630331,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Quantile-change GP (PCA factors),10.0,6.41522578882904,1.0,8.98903952160677e-06,0.010646153001626746,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,1e-06,8.728488217936568e-06,0.03932301375042435,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.0001,8.72848816253949e-06,0.03932301984755093,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.01,8.72848262314593e-06,0.039323629525627735,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,0.1,8.728432293497069e-06,0.039329168919642,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Linear autoregression (PCA quantile factors),,,1.0,8.727931810289542e-06,0.0393842532237586,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.033218549055481765,1e-06,7.836209642304548e-06,0.13752919465260527,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.033218549055481765,0.0001,7.844081438770807e-06,0.1366628070816126,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.033218549055481765,0.01,7.5770674975065985e-06,0.16605096021598909,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.033218549055481765,0.1,7.561349620612771e-06,0.16778090499308984,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.1,0.033218549055481765,1.0,7.664883141065206e-06,0.15638577356590122,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.09965564716644529,1e-06,1.1552738265421151e-05,-0.2715202796457046,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.09965564716644529,0.0001,8.103996443618666e-06,0.10805597880805473,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.09965564716644529,0.01,7.810479833262235e-06,0.1403610751329789,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.09965564716644529,0.1,7.634813854819737e-06,0.1596952666382081,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),0.3,0.09965564716644529,1.0,7.5700439212515585e-06,0.16682399076846444,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,1e-06,4.150330757413763e-05,-3.567947099679694,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,0.0001,1.4327159317969445e-05,-0.5768792821213427,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,0.01,8.408405707365579e-06,0.07455201262501165,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,0.1,8.02392531786616e-06,0.1168687864618998,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),1.0,0.3321854905548176,1.0,7.723536358744992e-06,0.1499302689026002,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,1e-06,0.00012348005642677013,-12.590491905142324,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,0.0001,3.5561728476352165e-05,-2.9140035806296813,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,0.01,1.0201447286102351e-05,-0.12279416429269463,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,0.1,8.614763735834413e-06,0.05183978526925215,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),3.0,0.9965564716644528,1.0,8.07749282565597e-06,0.11097302643341445,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,1e-06,0.002828166608982044,-310.27435893713624,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,0.0001,0.00012914697621638585,-13.21420580483217,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,0.01,1.5137653165710375e-05,-0.666084052475681,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,0.1,1.0231706305252138e-05,-0.12612453979391258,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (vol/skew/kurtosis),10.0,3.321854905548176,1.0,8.801196518644352e-06,0.031320575131587036,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.10018272593815282,1e-06,8.524431890919917e-06,0.06178191068296279,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.10018272593815282,0.0001,8.352580775574026e-06,0.08069622980123359,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.10018272593815282,0.01,8.601934630691803e-06,0.05325178534955877,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.10018272593815282,0.1,8.558107046549113e-06,0.058075547540389905,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.1,0.10018272593815282,1.0,8.604714424680869e-06,0.05294583498964156,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,1e-06,1.2702762702265519e-05,-0.3980945480087761,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,0.0001,9.149103381749598e-06,-0.006970834376954782,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,0.01,8.357266761825828e-06,0.08018047964638586,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,0.1,8.458636276182903e-06,0.06902352358267472,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),0.3,0.3005481778144584,1.0,8.462189255756142e-06,0.06863247468355249,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,1e-06,0.00011223071577251633,-11.3523642469282,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,0.0001,1.2215296701288364e-05,-0.3444429468350998,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,0.01,8.963554672521117e-06,0.013451072639866002,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,0.1,8.488809729049906e-06,0.06570256569841593,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),1.0,1.001827259381528,1.0,8.250999689016191e-06,0.09187647197579518,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,1e-06,0.0007073749157284259,-76.85526946053217,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,0.0001,2.551608763972701e-05,-1.8083578235507827,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,0.01,1.0214209625226724e-05,-0.12419881595531601,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,0.1,8.977449383589799e-06,0.011921789581794129,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),3.0,3.0054817781445844,1.0,8.258508135266417e-06,0.09105007554436484,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.018272593815281,1e-06,0.00017890027022845765,-18.690164911849845,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.018272593815281,0.0001,4.7868496869134625e-05,-4.2685141069490635,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.018272593815281,0.01,1.3950614341807056e-05,-0.5354358976709002,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.018272593815281,0.1,1.04801883233561e-05,-0.15347302790881745,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,GP (SVI parameters),10.0,10.018272593815281,1.0,8.904838746688243e-06,0.01991347910311425,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,1e-06,1.9161260779714593e-05,-1.1089313291128033,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,0.0001,7.666503285876606e-06,0.15620745679490466,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,0.01,7.168603967990882e-06,0.21100737222347277,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,0.1,7.20477848263201e-06,0.20702592402342057,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.1,1945.646907561773,1.0,7.336912466696823e-06,0.19248296143664834,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,1e-06,2.115742205635583e-05,-1.32863331546264,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,0.0001,8.991350141752036e-06,0.010391840967045485,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,0.01,7.315494954971185e-06,0.19484022080434382,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,0.1,7.234490284353554e-06,0.20375577649944931,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),0.3,5836.940722685319,1.0,7.300021493283336e-06,0.19654326469579164,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,1e-06,0.0002966300484219846,-31.64776830007159,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,0.0001,1.6722345200369137e-05,-0.8404988113638565,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,0.01,7.796879587721058e-06,0.14185794865477652,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,0.1,7.423605336286841e-06,0.18294134980728027,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),1.0,19456.46907561773,1.0,7.349433514538362e-06,0.1911048668336932,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,1e-06,0.0012473292926431386,-136.2838589911623,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,0.0001,6.609207463039533e-05,-6.274241940366636,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,0.01,9.431773452084948e-06,-0.03808213618460221,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,0.1,7.961295934775207e-06,0.12376191680660797,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),3.0,58369.40722685319,1.0,7.704815042782617e-06,0.15199077891857327,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,1e-06,0.0006629655959567307,-71.96748014187379,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,0.0001,0.0001729488951399397,-18.035143224093037,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,0.01,1.5251822688840903e-05,-0.6786498062080628,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,0.1,9.409874820337123e-06,-0.035671923668389116,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,1,Wasserstein-input GP (quantile changes),10.0,194564.6907561773,1.0,8.302812456603064e-06,0.08617384258891914,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07320327823822417,1e-06,1.882680390341788e-05,0.06805723817716802,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07320327823822417,0.0001,1.9875443578181024e-05,0.016148684836452376,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07320327823822417,0.01,2.0325280786801788e-05,-0.006118638535232757,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07320327823822417,0.1,2.0679907255360763e-05,-0.02367294951758314,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07320327823822417,1.0,2.128214865609367e-05,-0.05348440966569612,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.21960983471467252,1e-06,2.170873892662776e-05,-0.07460098988439778,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.21960983471467252,0.0001,1.937481863342747e-05,0.040930044224082196,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.21960983471467252,0.01,1.92991298302302e-05,0.04467670418041825,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.21960983471467252,0.1,1.9981777445872315e-05,0.010885068194992908,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.21960983471467252,1.0,2.0642603834308364e-05,-0.021826398535305103,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7320327823822418,1e-06,5.4804630561516974e-05,-1.7128756972344004,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7320327823822418,0.0001,2.2404716180438217e-05,-0.10905245426514876,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7320327823822418,0.01,2.108768287651481e-05,-0.04385818863367841,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7320327823822418,0.1,1.89253563339548e-05,0.06317880927494435,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7320327823822418,1.0,1.9045162236318873e-05,0.05724831549041087,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.1960983471467252,1e-06,0.0006034398120648221,-28.870782525516518,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.1960983471467252,0.0001,7.192054126940651e-05,-2.560127794725454,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.1960983471467252,0.01,2.8081761645694858e-05,-0.39007101997744,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.1960983471467252,0.1,2.000936957140101e-05,0.00951923457810866,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.1960983471467252,1.0,1.9504765696860044e-05,0.03449755436508206,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.320327823822417,1e-06,0.002235625203314364,-109.66534378675276,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.320327823822417,0.0001,0.0002847500944134839,-13.095371194089829,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.320327823822417,0.01,3.6838163242015136e-05,-0.8235203260395856,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.320327823822417,0.1,2.2801790847127647e-05,-0.12870798705886144,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.320327823822417,1.0,1.9399052093141238e-05,0.03973046741380526,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,1e-06,2.146754521077585e-05,-0.06266169637295183,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.0001,2.1467543281489935e-05,-0.0626616008716625,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.01,2.146735036308457e-05,-0.0626520512469666,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.1,2.146559748417922e-05,-0.06256528225438696,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,1.0,2.144815995529404e-05,-0.06170210978432866,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03487709802065116,1e-06,2.7219627581998012e-05,-0.34739465257567836,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03487709802065116,0.0001,1.9854546435428457e-05,0.01718311112733739,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03487709802065116,0.01,1.8978032853723038e-05,0.06057127686700792,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03487709802065116,0.1,2.0358115109363295e-05,-0.0077439653515913864,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03487709802065116,1.0,2.0941676351182348e-05,-0.03663074178924686,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10463129406195347,1e-06,3.832748880187653e-05,-0.8972432044756109,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10463129406195347,0.0001,2.5890891662734853e-05,-0.28162109755891307,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10463129406195347,0.01,1.980004132231344e-05,0.019881160456924007,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10463129406195347,0.1,1.911924897985723e-05,0.0535809588460332,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10463129406195347,1.0,2.0067421602283815e-05,0.0066456098105758254,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3487709802065116,1e-06,0.00014342773721405237,-6.09979464528215,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3487709802065116,0.0001,3.1554801072185904e-05,-0.5619894173670283,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3487709802065116,0.01,2.335296145158541e-05,-0.15599139947389573,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3487709802065116,0.1,2.033063817297118e-05,-0.0063838336946695495,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3487709802065116,1.0,1.970811331775081e-05,0.024431674654684654,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0463129406195346,1e-06,0.002783287527265698,-136.7750933410496,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0463129406195346,0.0001,0.00016079040487802096,-6.959261421394547,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0463129406195346,0.01,2.634131673081355e-05,-0.3039175204723792,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0463129406195346,0.1,2.182428789449455e-05,-0.08032076180064962,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0463129406195346,1.0,1.9167033312028806e-05,0.0512155938736093,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.487709802065116,1e-06,0.006159501182592616,-303.9005329318934,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.487709802065116,0.0001,0.0007402853305871686,-35.644751762623216,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.487709802065116,0.01,5.6386943654965704e-05,-1.7912015374535852,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.487709802065116,0.1,2.9066749437658124e-05,-0.43882875113102005,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.487709802065116,1.0,2.0696047232013964e-05,-0.024471892051594946,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.05156373203258176,1e-06,0.00012145260166583529,-5.01200679667559,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.05156373203258176,0.0001,3.416105647756156e-05,-0.6910012705186155,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.05156373203258176,0.01,2.3022530771787284e-05,-0.1396348005577006,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.05156373203258176,0.1,2.2099445648727464e-05,-0.09394130401972678,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.05156373203258176,1.0,2.084319428991222e-05,-0.031755796225415356,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.15469119609774526,1e-06,0.002437764095614656,-119.67139040669673,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.15469119609774526,0.0001,7.766185280589934e-05,-2.844327585473424,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.15469119609774526,0.01,2.7741830915881447e-05,-0.37324416052769305,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.15469119609774526,0.1,2.2478021655014574e-05,-0.11268113743324726,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.15469119609774526,1.0,2.0366174468932134e-05,-0.008142910486073074,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.5156373203258175,1e-06,0.0007190139343255784,-34.59179960560546,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.5156373203258175,0.0001,5.415396443779994e-05,-1.6806671722254727,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.5156373203258175,0.01,2.3325262515250716e-05,-0.1546202786315194,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.5156373203258175,0.1,2.198511309993669e-05,-0.08828174587948534,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.5156373203258175,1.0,1.9785865793062428e-05,0.02058286117831365,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,1.5469119609774526,1e-06,0.0008391799810635002,-40.54012084211336,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,1.5469119609774526,0.0001,0.0002608485112924075,-11.912222556643721,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,1.5469119609774526,0.01,2.6378151566934503e-05,-0.3057408761031042,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,1.5469119609774526,0.1,1.9101254973732133e-05,0.05447167741146297,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,1.5469119609774526,1.0,1.8345877771922186e-05,0.09186348960030533,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,5.156373203258175,1e-06,0.0002930664377280025,-13.507037241952167,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,5.156373203258175,0.0001,7.03327155663373e-05,-2.4815290756543447,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,5.156373203258175,0.01,2.3047466528322675e-05,-0.14086914165632525,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,5.156373203258175,0.1,1.8552275886036162e-05,0.08164660788797795,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,5.156373203258175,1.0,1.755678839979535e-05,0.1309240828139745,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1733.1931959599003,1e-06,3.586827347740934e-05,-0.7755099600461135,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1733.1931959599003,0.0001,2.3194404223976477e-05,-0.14814268222146754,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1733.1931959599003,0.01,1.9195044688008433e-05,0.04982900700380222,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1733.1931959599003,0.1,1.9980579995813196e-05,0.010944342988577827,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1733.1931959599003,1.0,1.9730220035749074e-05,0.023337373363194636,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5199.579587879701,1e-06,9.021808283546095e-05,-3.4658716219366736,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5199.579587879701,0.0001,2.355864140765459e-05,-0.16617273175387504,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5199.579587879701,0.01,2.0059336243440933e-05,0.0070458419311747456,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5199.579587879701,0.1,1.953506371199676e-05,0.03299777691750716,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5199.579587879701,1.0,1.9899312187747195e-05,0.014967168417941767,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,17331.931959599002,1e-06,0.0009164159496666637,-44.36336679832297,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,17331.931959599002,0.0001,7.481234581135424e-05,-2.7032745723357166,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,17331.931959599002,0.01,2.3906978136720303e-05,-0.1834156952964494,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,17331.931959599002,0.1,2.1703226861456025e-05,-0.07432813798314841,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,17331.931959599002,1.0,1.9552255320936487e-05,0.03214677769333407,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,51995.79587879701,1e-06,0.0008965574159430888,-43.3803525353051,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,51995.79587879701,0.0001,0.00021038381771976052,-9.41417742142576,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,51995.79587879701,0.01,3.995666383478882e-05,-0.9778887504458136,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,51995.79587879701,0.1,2.5274294293820523e-05,-0.2510990048093098,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,51995.79587879701,1.0,2.0581044928482093e-05,-0.018779180483593727,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,173319.31959599003,1e-06,0.0010431922830977098,-50.638902832883375,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,173319.31959599003,0.0001,0.00032251247872149127,-14.964641246806032,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,173319.31959599003,0.01,6.367333519193981e-05,-2.1518840987383174,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,173319.31959599003,0.1,3.096712522485413e-05,-0.5328989644665487,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,173319.31959599003,1.0,2.1065730525832198e-05,-0.04277152865524503,origin_50pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07116678924914546,1e-06,0.0015234884485675708,-47.20075732134348,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07116678924914546,0.0001,9.023367425234565e-05,-1.8548502871418835,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07116678924914546,0.01,5.8841403720178905e-05,-0.861648654986666,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07116678924914546,0.1,4.609433662147305e-05,-0.45835167668578225,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.07116678924914546,1.0,3.300454838885087e-05,-0.04421154547466233,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.2135003677474364,1e-06,0.01593500923004862,-503.15840929618673,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.2135003677474364,0.0001,0.00027631832846727666,-7.742273501589832,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.2135003677474364,0.01,4.025792988080318e-05,-0.27369702754801795,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.2135003677474364,0.1,4.1670769600840384e-05,-0.3183970346557172,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.2135003677474364,1.0,3.701113879867039e-05,-0.17097370912041265,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7116678924914547,1e-06,0.0283054745272257,-894.5403041191902,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7116678924914547,0.0001,0.0004938490760091072,-14.62460121602223,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7116678924914547,0.01,4.515638684309681e-05,-0.4286764338641982,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7116678924914547,0.1,3.46872870550219e-05,-0.0974507270120164,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.7116678924914547,1.0,3.344908989378856e-05,-0.05827613337417192,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.135003677474364,1e-06,0.024280329682095803,-767.1911075789856,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.135003677474364,0.0001,0.0032095771540519256,-100.5459287873449,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.135003677474364,0.01,5.3950948715990625e-05,-0.7069224179289033,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.135003677474364,0.1,4.2160972555070375e-05,-0.3339062783636437,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,2.135003677474364,1.0,3.3368239658978565e-05,-0.05571816022306986,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.116678924914546,1e-06,0.00534104584947008,-167.98221648777923,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.116678924914546,0.0001,0.0002538638339022699,-7.03184892021611,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.116678924914546,0.01,6.093903942491325e-05,-0.9280145205418333,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.116678924914546,0.1,4.273161887547008e-05,-0.3519606225444383,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,7.116678924914546,1.0,3.331556816532455e-05,-0.05405171773329798,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,1e-06,3.125916472060831e-05,0.011009624534664919,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.0001,3.125916249052917e-05,0.011009695090830607,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.01,3.1258939492684384e-05,0.011016750388827545,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.1,3.125691315353739e-05,0.011080860544416149,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,1.0,3.1236740034391226e-05,0.011719106027204718,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03594390207039846,1e-06,9.400465572610158e-05,-1.9741581578715186,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03594390207039846,0.0001,9.842793246856144e-05,-2.1141036159607562,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03594390207039846,0.01,4.5678060240081605e-05,-0.44518135244937485,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03594390207039846,0.1,3.274967769535516e-05,-0.036147841114409385,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03594390207039846,1.0,2.82982311239424e-05,0.10468886566819313,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10783170621119535,1e-06,0.00030811023909929316,-8.74811911242887,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10783170621119535,0.0001,7.279689112501589e-05,-1.3031781344743987,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10783170621119535,0.01,6.810843136946443e-05,-1.1548427065945872,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10783170621119535,0.1,4.4464501201762215e-05,-0.4067862699292848,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10783170621119535,1.0,3.1420709778229694e-05,0.0058985952215171444,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.35943902070398454,1e-06,0.0021357107501318953,-66.57049958106468,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.35943902070398454,0.0001,0.0002393360731281009,-6.572213619300866,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.35943902070398454,0.01,5.144122901563162e-05,-0.6275188685712831,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.35943902070398454,0.1,4.632205224566764e-05,-0.46555623773801846,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.35943902070398454,1.0,3.55648106154558e-05,-0.12521418017111663,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0783170621119536,1e-06,0.021732536790323713,-686.5829828525948,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0783170621119536,0.0001,0.0006649893769108657,-20.039208802593304,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0783170621119536,0.01,6.669328694042413e-05,-1.1100697821507182,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0783170621119536,0.1,4.181682550089126e-05,-0.32301801159868093,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0783170621119536,1.0,3.3927889204777026e-05,-0.0734245839031411,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.5943902070398455,1e-06,0.022834519759104405,-721.4479755608712,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.5943902070398455,0.0001,0.0031544895343795913,-98.80304390381775,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.5943902070398455,0.01,0.0001496392676669179,-3.7343490089066895,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.5943902070398455,0.1,4.894610869051273e-05,-0.5485772202826562,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.5943902070398455,1.0,3.328493633101697e-05,-0.05308257509676806,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.08105014056958318,1e-06,8.689589216451699e-05,-1.7492481576618575,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.08105014056958318,0.0001,3.977443198481062e-05,-0.25839992124437017,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.08105014056958318,0.01,3.303691835524404e-05,-0.04523567985263166,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.08105014056958318,0.1,3.036560468823573e-05,0.03928044622217974,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.08105014056958318,1.0,2.9401832737616458e-05,0.06977266160365858,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.24315042170874954,1e-06,0.0002123792544620232,-5.719342646829267,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.24315042170874954,0.0001,4.4622415710241615e-05,-0.411782434427868,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.24315042170874954,0.01,3.9274415037885364e-05,-0.24258017837860435,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.24315042170874954,0.1,3.2960927187239925e-05,-0.04283143986579385,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.24315042170874954,1.0,2.9502006905429895e-05,0.06660330987199115,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.8105014056958317,1e-06,0.00012004209628825214,-2.797941465834986,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.8105014056958317,0.0001,7.723336603603922e-05,-1.4435411616765572,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.8105014056958317,0.01,4.2839929581722884e-05,-0.3553874014427645,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.8105014056958317,0.1,3.804157750349395e-05,-0.20357515483036814,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,0.8105014056958317,1.0,3.099550608324341e-05,0.019351365495845485,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,2.4315042170874954,1e-06,0.00021353974398197708,-5.7560586939892255,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,2.4315042170874954,0.0001,9.447594978769422e-05,-1.9890691542175531,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,2.4315042170874954,0.01,3.8592237044736446e-05,-0.2209971490299747,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,2.4315042170874954,0.1,3.728838699968299e-05,-0.17974540231398595,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,2.4315042170874954,1.0,3.301974104841087e-05,-0.044692217118222244,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,8.105014056958318,1e-06,0.0005156893236260503,-15.315591998533328,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,8.105014056958318,0.0001,0.0001276566329072471,-3.0388533231134236,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,8.105014056958318,0.01,4.973874849873548e-05,-0.5736550861997252,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,8.105014056958318,0.1,3.7900215342457014e-05,-0.19910268034264322,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,8.105014056958318,1.0,3.3692649884541705e-05,-0.06598198504539354,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,2215.8557049122023,1e-06,0.0002486290214483491,-6.866227759811893,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,2215.8557049122023,0.0001,9.976635054528656e-05,-2.1564490403526397,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,2215.8557049122023,0.01,4.765231497792329e-05,-0.5076436399702895,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,2215.8557049122023,0.1,3.307674724513648e-05,-0.04649580273566967,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,2215.8557049122023,1.0,2.9044764518660993e-05,0.0810697335212166,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,6647.5671147366065,1e-06,0.0009996600072121368,-30.62765655150786,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,6647.5671147366065,0.0001,0.00010696621125867317,-2.384241209909107,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,6647.5671147366065,0.01,7.498356039057212e-05,-1.3723608806318874,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,6647.5671147366065,0.1,4.520286790539095e-05,-0.43014702092758195,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,6647.5671147366065,1.0,3.136009647134198e-05,0.007816304081394443,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,22158.557049122024,1e-06,0.011994223724403038,-378.47820841137786,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,22158.557049122024,0.0001,0.0005725105090090913,-17.113324150643933,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,22158.557049122024,0.01,7.051405688369033e-05,-1.2309528810604697,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,22158.557049122024,0.1,5.45119998975688e-05,-0.7246731871411869,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,22158.557049122024,1.0,3.632208260183988e-05,-0.14917306432036637,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,66475.67114736607,1e-06,0.005582171172614986,-175.61103913875888,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,66475.67114736607,0.0001,0.0021622655617823854,-67.4106516893939,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,66475.67114736607,0.01,5.7506631540887384e-05,-0.8194185810049415,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,66475.67114736607,0.1,4.6009620917391965e-05,-0.4556714062199585,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,66475.67114736607,1.0,3.57845143949701e-05,-0.13216525916939048,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,221585.57049122022,1e-06,0.0002772575979243961,-7.771990496953027,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,221585.57049122022,0.0001,0.00021246325646648537,-5.722000336971515,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,221585.57049122022,0.01,9.165337601801016e-05,-1.8997673984857983,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,221585.57049122022,0.1,4.216295386172225e-05,-0.33396896376253604,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,221585.57049122022,1.0,3.184287674427243e-05,-0.007458097767160332,origin_65pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.06479964510776057,1e-06,1.456695709473669e-05,0.11303356918994267,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.06479964510776057,0.0001,1.408895087162365e-05,0.14213885664718107,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.06479964510776057,0.01,1.3628687733029065e-05,0.17016378667324517,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.06479964510776057,0.1,1.3570744141284063e-05,0.17369190997477868,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.1,0.06479964510776057,1.0,1.3764507367673044e-05,0.16189387444719605,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.19439893532328167,1e-06,1.5624566772172148e-05,0.048636847576473796,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.19439893532328167,0.0001,1.5174945900508413e-05,0.07601378135637649,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.19439893532328167,0.01,1.4418033919610527e-05,0.12210134197512379,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.19439893532328167,0.1,1.3989695204357131e-05,0.14818242802317316,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),0.3,0.19439893532328167,1.0,1.362203718976366e-05,0.17056873113657411,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,1e-06,1.75956634123624e-05,-0.07138111776530187,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,0.0001,1.6669675989546097e-05,-0.014998734399380043,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,0.01,1.572654133708464e-05,0.0424277254320472,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,0.1,1.5135729304739809e-05,0.07840163791084986,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),1.0,0.6479964510776056,1.0,1.450240431941616e-05,0.11696411860754363,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,1e-06,4.552028367376028e-05,-1.7716813660530857,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,0.0001,2.651359381581705e-05,-0.6143843578189614,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,0.01,1.8190628908705265e-05,-0.10760793022272575,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,0.1,1.667313728228835e-05,-0.015209488810862037,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),3.0,1.9439893532328167,1.0,1.5490635923313166e-05,0.056791753657081,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,1e-06,0.0008029160307763465,-47.88869799137326,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,0.0001,9.01186527039399e-05,-4.487228335910022,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,0.01,4.154020818527728e-05,-1.5293388282522509,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,0.1,2.685194732501336e-05,-0.6349863409546395,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Quantile-change GP (PCA factors),10.0,6.479964510776056,1.0,1.788901233020945e-05,-0.0892428194887731,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,1e-06,1.4010106918123245e-05,0.1469395806125503,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.0001,1.4010107027811714e-05,0.1469395739337368,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.01,1.4010117997069987e-05,0.14693890602733772,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,0.1,1.4010217754962279e-05,0.14693283187601736,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Linear autoregression (PCA quantile factors),,,1.0,1.4011219019873393e-05,0.14687186592693613,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03344544755906774,1e-06,1.4329513121348115e-05,0.12749127866379828,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03344544755906774,0.0001,1.3564326195826539e-05,0.17408269180646618,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03344544755906774,0.01,1.3046070454556858e-05,0.20563872935715533,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03344544755906774,0.1,1.321622525928174e-05,0.19527818536361663,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.1,0.03344544755906774,1.0,1.319671248913392e-05,0.19646629705919383,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10033634267720322,1e-06,2.317189554098344e-05,-0.4109119254916753,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10033634267720322,0.0001,1.442447670446659e-05,0.12170904769903756,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10033634267720322,0.01,1.3767121309190214e-05,0.16173471434514097,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10033634267720322,0.1,1.3309195119389491e-05,0.18961735005968916,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),0.3,0.10033634267720322,1.0,1.3187865686996504e-05,0.19700496937523582,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,1e-06,8.427062513779506e-05,-4.13114819481477,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,0.0001,2.7147783871224864e-05,-0.6529995117074523,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,0.01,1.518287250296493e-05,0.07553113901428798,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,0.1,1.4346834637449106e-05,0.12643659008248398,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),1.0,0.3344544755906774,1.0,1.356526118960364e-05,0.17402576103582468,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,1e-06,0.001970472620564672,-118.97996945447717,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,0.0001,9.88591175885682e-05,-5.01942589041099,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,0.01,1.7483423712071175e-05,-0.06454696251139058,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,0.1,1.589986220926053e-05,0.03187440297911848,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),3.0,1.0033634267720322,1.0,1.4526488149443498e-05,0.11549767996695048,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,1e-06,0.004029376544609805,-244.3444263561155,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,0.0001,0.00035136455683066177,-20.394211904272993,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,0.01,4.033388654154366e-05,-1.4558871941331444,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,0.1,2.02074256416742e-05,-0.23040852531455713,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (vol/skew/kurtosis),10.0,3.344544755906774,1.0,1.5699016855333037e-05,0.044103661674623096,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.10100839927746144,1e-06,3.42844966884015e-05,-1.0875463188408863,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.10100839927746144,0.0001,2.709560065146104e-05,-0.6498221312922372,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.10100839927746144,0.01,1.8419318917451696e-05,-0.12153262015629007,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.10100839927746144,0.1,1.6986234701394336e-05,-0.034273655645033596,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.1,0.10100839927746144,1.0,1.618264042929828e-05,0.014656339734576584,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,1e-06,5.544050923935689e-05,-2.375713286070693,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,0.0001,2.672274791211563e-05,-0.627119526947062,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,0.01,2.2928613681280846e-05,-0.3960987533667151,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,0.1,1.859402936675191e-05,-0.13217055247346732,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),0.3,0.3030251978323843,1.0,1.648264117115032e-05,-0.0036103844350867664,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,1e-06,0.00012376906472122122,-6.53616591759893,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,0.0001,3.100782445408712e-05,-0.8880332525427546,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,0.01,2.35653489921364e-05,-0.43486888513598787,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,0.1,2.145403365904037e-05,-0.3063131536176078,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),1.0,1.0100839927746144,1.0,1.7568071719986546e-05,-0.06970108913973116,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,1e-06,0.0001576348084632629,-8.598214817602894,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,0.0001,5.322276244241303e-05,-2.240677056600609,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,0.01,2.644899846486725e-05,-0.6104512160168505,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,0.1,2.0880597350557223e-05,-0.2713972303726655,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),3.0,3.030251978323843,1.0,1.7533905494204086e-05,-0.06762074420980269,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,1e-06,0.0005200299969836647,-30.664070082654646,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,0.0001,8.342363251672887e-05,-4.079575720402734,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,0.01,2.7520221733670085e-05,-0.6756768546420946,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,0.1,1.9246627270467083e-05,-0.1719065405489395,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,GP (SVI parameters),10.0,10.100839927746144,1.0,1.6726391525125277e-05,-0.018452082675000536,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,1e-06,2.6028953365415325e-05,-0.5848751193607584,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,0.0001,1.399939957469446e-05,0.14759153929703894,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,0.01,1.2531772309575502e-05,0.2369537931044885,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,0.1,1.2514282828858413e-05,0.2380187088715544,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.1,1965.6559881902297,1.0,1.2750082550059041e-05,0.22366111615406803,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,1e-06,5.661982581382985e-05,-2.4475206104180245,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,0.0001,1.6423028894283056e-05,1.9343318043318902e-05,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,0.01,1.3003061221570401e-05,0.20825751553369043,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,0.1,1.2705840775599051e-05,0.2263549504621034,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),0.3,5896.967964570688,1.0,1.2763578976963631e-05,0.22283933316106552,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,1e-06,0.0002551475727579424,-14.535662696551128,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,0.0001,2.672667752303204e-05,-0.6273587967510665,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,0.01,1.3682249250835617e-05,0.16690248316499146,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,0.1,1.3304621682292483e-05,0.18989582175093433,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),1.0,19656.559881902296,1.0,1.2777480237309187e-05,0.22199290029301555,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,1e-06,0.0025093827505906943,-151.7936306362811,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,0.0001,6.81831493059006e-05,-3.1515990050588565,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,0.01,1.6997221245144902e-05,-0.03494261453837022,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,0.1,1.4032879681770902e-05,0.145552971400971,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),3.0,58969.679645706885,1.0,1.3368559088425231e-05,0.18600274150473062,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.59881902294,1e-06,0.0008731422782888623,-52.164699060111616,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.59881902294,0.0001,0.00016765884050694426,-9.208567402997835,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.59881902294,0.01,2.885526304687213e-05,-0.7569660917046959,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.59881902294,0.1,1.7691009520574637e-05,-0.07718664027371891,origin_80pct,full_training
+rolling_origin,SENSITIVITY ONLY - not the selected result,5,Wasserstein-input GP (quantile changes),10.0,196565.59881902294,1.0,1.4597978914004412e-05,0.11114468380817222,origin_80pct,full_training

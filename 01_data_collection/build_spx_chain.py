@@ -1,12 +1,16 @@
 from __future__ import annotations
 
 from pathlib import Path
-from datetime import date, timedelta
+from datetime import date
+import time
 
 from dotenv import load_dotenv
+import exchange_calendars
 
 # Load VolForge / ThetaData configuration
-load_dotenv()
+load_dotenv(
+    Path(r"C:\Work\UNIVERSITY OF AMSTERDAM\VolForge\.env")
+)
 
 import pandas as pd
 
@@ -18,12 +22,15 @@ from vol_forge.theta_data.theta_data_client import ThetaDataClientFactory
 # ============================================================
 
 SYMBOL = "SPX"
+ROOTS = ("SPX", "SPXW")
 
 MIN_DTE = 7
 MAX_DTE = 60
+REQUEST_BATCH_SESSIONS = 4
 
-END_DATE = date(2026, 9, 30)
-CALENDAR_DAYS = 35
+START_DATE = date(2024, 1, 2)
+END_DATE = date(2026, 11, 4)
+REQUEST_DELAY_SECONDS = 1.0
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -45,29 +52,184 @@ OUTPUT_FILE = OUT_DIR / "option_chains_spx.csv"
 client = ThetaDataClientFactory.create_instance()
 
 
+def write_parquet_cache(frame: pd.DataFrame, path: Path) -> None:
+    temporary_path = path.with_name(f"{path.name}.tmp")
+    frame.to_parquet(temporary_path, index=False)
+    temporary_path.replace(path)
+
+
+def cache_root_date_chunks(
+    dates: list[date],
+) -> tuple[dict[tuple[date, str], str], list[dict[str, object]]]:
+    failures = {}
+    retry_diagnostics = []
+    for offset in range(0, len(dates), REQUEST_BATCH_SESSIONS):
+        date_chunk = dates[offset : offset + REQUEST_BATCH_SESSIONS]
+        for root in ROOTS:
+            missing_dates = [
+                value_date
+                for value_date in date_chunk
+                if not (
+                    (RAW_RESPONSE_DIR / f"{root}_options_{value_date}.parquet").exists()
+                    or (RAW_RESPONSE_DIR / f"{root}_options_{value_date}.empty").exists()
+                )
+            ]
+            if not missing_dates:
+                continue
+
+            try:
+                time.sleep(REQUEST_DELAY_SECONDS)
+                options = client.option_history_eod(
+                    date_chunk[0],
+                    date_chunk[-1],
+                    root,
+                    "*",
+                    max_dte=MAX_DTE,
+                )
+                if options is None or options.is_empty():
+                    for value_date in missing_dates:
+                        (RAW_RESPONSE_DIR / f"{root}_options_{value_date}.empty").touch()
+                    continue
+
+                raw_options = options.to_pandas()
+                date_column = next(
+                    (
+                        column
+                        for column in ("created", "timestamp", "date")
+                        if column in raw_options.columns
+                    ),
+                    None,
+                )
+                if date_column is None:
+                    if len(date_chunk) != 1:
+                        raise ValueError(
+                            "Multi-date option response has no observation-date column"
+                        )
+                    observation_dates = pd.Series(date_chunk[0], index=raw_options.index)
+                else:
+                    observation_dates = pd.to_datetime(
+                        raw_options[date_column],
+                        errors="coerce",
+                    ).dt.date
+
+                for value_date in missing_dates:
+                    day_options = raw_options.loc[
+                        observation_dates == value_date
+                    ].copy()
+                    cache_path = RAW_RESPONSE_DIR / f"{root}_options_{value_date}.parquet"
+                    empty_path = RAW_RESPONSE_DIR / f"{root}_options_{value_date}.empty"
+                    if day_options.empty:
+                        empty_path.touch()
+                    else:
+                        day_options["root"] = root
+                        write_parquet_cache(day_options, cache_path)
+            except Exception as exc:
+                for value_date in missing_dates:
+                    failures[(value_date, root)] = type(exc).__name__
+                print(
+                    f"ERROR option history {root} "
+                    f"{date_chunk[0]}..{date_chunk[-1]}: {type(exc).__name__}"
+                )
+                for value_date in missing_dates:
+                    try:
+                        time.sleep(REQUEST_DELAY_SECONDS)
+                        options = client.option_history_eod(
+                            value_date,
+                            value_date,
+                            root,
+                            "*",
+                            max_dte=MAX_DTE,
+                        )
+                        if options is None or options.is_empty():
+                            (RAW_RESPONSE_DIR / f"{root}_options_{value_date}.empty").touch()
+                            retry_diagnostics.append({
+                                "date": value_date,
+                                "root": root,
+                                "status": "empty_single_day_fallback",
+                                "batch_error_type": type(exc).__name__,
+                                "batch_error_message": str(exc)[:300],
+                            })
+                            failures.pop((value_date, root), None)
+                            continue
+
+                        day_options = options.to_pandas()
+                        date_column = next(
+                            (
+                                column
+                                for column in ("created", "timestamp", "date")
+                                if column in day_options.columns
+                            ),
+                            None,
+                        )
+                        if date_column is not None:
+                            observation_dates = pd.to_datetime(
+                                day_options[date_column],
+                                errors="coerce",
+                            ).dt.date
+                            day_options = day_options.loc[
+                                observation_dates == value_date
+                            ].copy()
+
+                        if day_options.empty:
+                            (RAW_RESPONSE_DIR / f"{root}_options_{value_date}.empty").touch()
+                            retry_diagnostics.append({
+                                "date": value_date,
+                                "root": root,
+                                "status": "empty_single_day_fallback",
+                                "batch_error_type": type(exc).__name__,
+                                "batch_error_message": str(exc)[:300],
+                            })
+                        else:
+                            day_options["root"] = root
+                            write_parquet_cache(
+                                day_options,
+                                RAW_RESPONSE_DIR / f"{root}_options_{value_date}.parquet",
+                            )
+                            retry_diagnostics.append({
+                                "date": value_date,
+                                "root": root,
+                                "status": "single_day_fallback_succeeded",
+                                "batch_error_type": type(exc).__name__,
+                                "batch_error_message": str(exc)[:300],
+                                "rows": len(day_options),
+                            })
+                        failures.pop((value_date, root), None)
+                    except Exception as retry_exc:
+                        failures[(value_date, root)] = (
+                            f"{type(retry_exc).__name__}: {str(retry_exc)[:300]}"
+                        )
+                        retry_diagnostics.append({
+                            "date": value_date,
+                            "root": root,
+                            "status": "single_day_fallback_failed",
+                            "batch_error_type": type(exc).__name__,
+                            "batch_error_message": str(exc)[:300],
+                            "error_type": type(retry_exc).__name__,
+                            "error_message": str(retry_exc)[:300],
+                        })
+    return failures, retry_diagnostics
+
+
 # ============================================================
 # GENERATE CANDIDATE DATES
 # ============================================================
 
-start_date = END_DATE - timedelta(days=CALENDAR_DAYS)
-
-dates = []
-
-d = start_date
-
-while d <= END_DATE:
-
-    if d.weekday() < 5:
-        dates.append(d)
-
-    d += timedelta(days=1)
+calendar = exchange_calendars.get_calendar("XNYS")
+dates = [
+    pd.Timestamp(session).date()
+    for session in calendar.sessions_in_range(
+        pd.Timestamp(START_DATE),
+        pd.Timestamp(END_DATE),
+    )
+]
 
 
 print("=" * 70)
 print("SPX / THETADATA DATA COLLECTION")
 print("=" * 70)
 
-print(f"Candidate dates : {start_date} -> {END_DATE}")
+print(f"Candidate dates : {START_DATE} -> {END_DATE}")
+print(f"Option roots    : {', '.join(ROOTS)}")
 print(f"DTE range       : {MIN_DTE} -> {MAX_DTE}")
 print()
 
@@ -81,27 +243,54 @@ all_rows = []
 successful_dates = []
 filter_diagnostics = []
 
+batch_failures, retry_diagnostics = cache_root_date_chunks(dates)
 
 for value_date in dates:
 
     print(f"Fetching {value_date} ...")
+    current_stage = "option history"
+    current_root = None
 
     try:
 
-        # ----------------------------------------------------
-        # OPTION CHAIN
-        # ----------------------------------------------------
+        root_frames = []
+        root_row_counts = {}
 
-        options = client.option_history_eod(
-            value_date,
-            value_date,
-            SYMBOL,
-            "*",
-            max_dte=MAX_DTE,
-        )
+        missing_root = None
+        for root in ROOTS:
+            current_root = root
+            options_cache = RAW_RESPONSE_DIR / f"{root}_options_{value_date}.parquet"
+            empty_cache = RAW_RESPONSE_DIR / f"{root}_options_{value_date}.empty"
 
-        if options is None or options.is_empty():
+            if options_cache.exists():
+                root_options = pd.read_parquet(options_cache)
+            elif empty_cache.exists():
+                root_options = pd.DataFrame()
+            else:
+                missing_root = root
+                break
 
+            root_row_counts[root] = len(root_options)
+            if not root_options.empty:
+                root_options["root"] = root
+                root_frames.append(root_options)
+
+        if missing_root:
+            error_type = batch_failures.get(
+                (value_date, missing_root),
+                "MissingDateCache",
+            )
+            print(f"  ERROR: no {missing_root} cache ({error_type})")
+            filter_diagnostics.append({
+                "date": value_date,
+                "status": "error",
+                "failed_stage": "option history",
+                "failed_root": missing_root,
+                "error_type": error_type,
+            })
+            continue
+
+        if not root_frames:
             print("  No option data.")
             filter_diagnostics.append({
                 "date": value_date,
@@ -110,45 +299,13 @@ for value_date in dates:
                 "valid_quote_rows": 0,
                 "clean_rows": 0,
                 "missing_quote_timestamp_rows": 0,
+                "spx_raw_rows": root_row_counts["SPX"],
+                "spxw_raw_rows": root_row_counts["SPXW"],
             })
             continue
 
-        raw_options = options.to_pandas()
+        raw_options = pd.concat(root_frames, ignore_index=True)
         raw_rows = len(raw_options)
-
-
-        # ----------------------------------------------------
-        # INDEX DATA
-        # ----------------------------------------------------
-
-        index_data = client.index_history_eod(
-            SYMBOL,
-            value_date,
-            value_date,
-        )
-
-        response_id = pd.Timestamp.now(
-            tz="UTC"
-        ).strftime("%Y%m%dT%H%M%S%fZ")
-
-        raw_options.to_parquet(
-            RAW_RESPONSE_DIR
-            / f"SPX_options_{value_date}_{response_id}.parquet",
-            index=False,
-        )
-
-        if index_data is not None:
-            raw_index = (
-                index_data.to_pandas()
-                if hasattr(index_data, "to_pandas")
-                else pd.DataFrame(index_data)
-            )
-            raw_index.to_parquet(
-                RAW_RESPONSE_DIR
-                / f"SPX_index_{value_date}_{response_id}.parquet",
-                index=False,
-            )
-
 
         # ----------------------------------------------------
         # CONVERT TO PANDAS
@@ -201,8 +358,13 @@ for value_date in dates:
                 "valid_quote_rows": 0,
                 "clean_rows": 0,
                 "missing_quote_timestamp_rows": int(
-                    raw_options.get("timestamp", pd.Series(index=raw_options.index, dtype=object)).isna().sum()
+                    raw_options.get(
+                        "created",
+                        pd.Series(index=raw_options.index, dtype=object),
+                    ).isna().sum()
                 ),
+                "spx_raw_rows": root_row_counts["SPX"],
+                "spxw_raw_rows": root_row_counts["SPXW"],
             })
             continue
 
@@ -236,8 +398,8 @@ for value_date in dates:
         if pdf.empty:
 
             print("  No valid quotes.")
-            timestamp = raw_options.get(
-                "timestamp",
+            quote_timestamp = raw_options.get(
+                "created",
                 pd.Series(index=raw_options.index, dtype=object),
             )
             filter_diagnostics.append({
@@ -246,7 +408,9 @@ for value_date in dates:
                 "dte_rows": dte_rows,
                 "valid_quote_rows": 0,
                 "clean_rows": 0,
-                "missing_quote_timestamp_rows": int(timestamp.isna().sum()),
+                "missing_quote_timestamp_rows": int(quote_timestamp.isna().sum()),
+                "spx_raw_rows": root_row_counts["SPX"],
+                "spxw_raw_rows": root_row_counts["SPXW"],
             })
             continue
 
@@ -279,7 +443,6 @@ for value_date in dates:
         optional_fields = [
             "created",
             "last_trade",
-            "timestamp",
         ]
 
         for field in optional_fields:
@@ -293,7 +456,14 @@ for value_date in dates:
             "dte_rows": dte_rows,
             "valid_quote_rows": valid_quote_rows,
             "clean_rows": len(pdf),
-            "missing_quote_timestamp_rows": int(pdf["timestamp"].isna().sum()),
+            "missing_quote_timestamp_rows": int(
+                pdf.get(
+                    "created",
+                    pd.Series(index=pdf.index, dtype=object),
+                ).isna().sum()
+            ),
+            "spx_raw_rows": root_row_counts["SPX"],
+            "spxw_raw_rows": root_row_counts["SPXW"],
         })
 
 
@@ -303,6 +473,7 @@ for value_date in dates:
 
         keep = [
             "date",
+            "root",
             "expiry",
             "expiry_date",
 
@@ -319,7 +490,6 @@ for value_date in dates:
 
             "created",
             "last_trade",
-            "timestamp",
 
             "dte",
             "tau_years",
@@ -345,9 +515,18 @@ for value_date in dates:
 
     except Exception as exc:
 
+        root_context = f" for {current_root}" if current_root else ""
         print(
-            f"  ERROR: {exc}"
+            f"  ERROR during {current_stage}{root_context}: "
+            f"{type(exc).__name__}"
         )
+        filter_diagnostics.append({
+            "date": value_date,
+            "status": "error",
+            "failed_stage": current_stage,
+            "failed_root": current_root,
+            "error_type": type(exc).__name__,
+        })
 
 
 # ============================================================
@@ -413,6 +592,21 @@ chain.to_csv(
 pd.DataFrame(filter_diagnostics).to_csv(
     OUT_DIR / "spx_collection_diagnostics.csv",
     index=False,
+)
+
+pd.DataFrame(retry_diagnostics).to_csv(
+    OUT_DIR / "spx_collection_retry_diagnostics.csv",
+    index=False,
+    columns=[
+        "date",
+        "root",
+        "status",
+        "batch_error_type",
+        "batch_error_message",
+        "rows",
+        "error_type",
+        "error_message",
+    ],
 )
 
 

@@ -1,13 +1,17 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 from scipy.optimize import least_squares
 
 
-INPUT = r"01_data_collection\data\spx_30d_smiles.csv"
-CURVE_OUTPUT = r"01_data_collection\data\svi_30d_curves.csv"
-PARAM_OUTPUT = r"01_data_collection\data\svi_30d_params.csv"
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "01_data_collection" / "data"
+INPUT = DATA_DIR / "spx_30d_smiles.csv"
+CURVE_OUTPUT = DATA_DIR / "svi_30d_curves.csv"
+PARAM_OUTPUT = DATA_DIR / "svi_30d_params.csv"
 
 N_GRID = 81
 

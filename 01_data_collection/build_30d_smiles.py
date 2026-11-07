@@ -14,7 +14,7 @@ INPUT = (
     ROOT
     / "01_data_collection"
     / "data"
-    / "spx_iv_20d.csv"
+    / "spx_iv.csv"
 )
 
 OUTPUT = (
@@ -22,6 +22,13 @@ OUTPUT = (
     / "01_data_collection"
     / "data"
     / "spx_30d_smiles.csv"
+)
+
+DIAGNOSTICS = (
+    ROOT
+    / "01_data_collection"
+    / "data"
+    / "spx_30d_smile_diagnostics.csv"
 )
 
 TARGET_DTE = 30
@@ -59,6 +66,7 @@ print()
 # ============================================================
 
 all_smiles = []
+date_diagnostics = []
 
 for value_date, day in df.groupby("date"):
 
@@ -67,10 +75,18 @@ for value_date, day in df.groupby("date"):
         f"{value_date.date()} ..."
     )
 
+    if "root" in day.columns:
+        roots = day["root"].astype(str).str.upper()
+        spx_expiries = set(day.loc[roots == "SPX", "expiry_date"])
+        if spx_expiries:
+            day = day.loc[
+                (day["expiry_date"].isin(spx_expiries) & (roots == "SPX"))
+                | ~day["expiry_date"].isin(spx_expiries)
+            ].copy()
+
     # --------------------------------------------------------
     # Available expiries
     # --------------------------------------------------------
-
     expiry_info = (
         day[
             [
@@ -83,24 +99,61 @@ for value_date, day in df.groupby("date"):
         .sort_values("dte")
     )
 
-    lower = expiry_info[
-        expiry_info["dte"] <= TARGET_DTE
-    ]
+    lower_candidates = expiry_info[expiry_info["dte"] < TARGET_DTE]
+    upper_candidates = expiry_info[expiry_info["dte"] > TARGET_DTE]
+    exact_candidates = expiry_info[expiry_info["dte"] == TARGET_DTE]
 
-    upper = expiry_info[
-        expiry_info["dte"] >= TARGET_DTE
-    ]
+    diagnostic = {
+        "date": value_date,
+        "nearest_expiry_below_30d": (
+            lower_candidates.iloc[-1]["expiry_date"]
+            if not lower_candidates.empty
+            else pd.NaT
+        ),
+        "nearest_dte_below_30d": (
+            float(lower_candidates.iloc[-1]["dte"])
+            if not lower_candidates.empty
+            else np.nan
+        ),
+        "nearest_expiry_above_30d": (
+            upper_candidates.iloc[0]["expiry_date"]
+            if not upper_candidates.empty
+            else pd.NaT
+        ),
+        "nearest_dte_above_30d": (
+            float(upper_candidates.iloc[0]["dte"])
+            if not upper_candidates.empty
+            else np.nan
+        ),
+        "status": "",
+        "reason": "",
+    }
 
-    if lower.empty or upper.empty:
-
-        print(
-            "  SKIP: no expiries bracketing 30D"
+    if exact_candidates.empty and (
+        lower_candidates.empty or upper_candidates.empty
+    ):
+        missing_sides = []
+        if lower_candidates.empty:
+            missing_sides.append("below")
+        if upper_candidates.empty:
+            missing_sides.append("above")
+        diagnostic["status"] = (
+            f"missing_expiry_{'_and_'.join(missing_sides)}_30d"
         )
-
+        diagnostic["reason"] = (
+            f"No expiry {' and '.join(missing_sides)} 30 calendar days"
+        )
+        date_diagnostics.append(diagnostic)
+        print(f"  SKIP: {diagnostic['reason']}")
         continue
 
-    lower = lower.iloc[-1]
-    upper = upper.iloc[0]
+    exact_maturity = not exact_candidates.empty
+    if exact_maturity:
+        lower = exact_candidates.iloc[0]
+        upper = lower
+    else:
+        lower = lower_candidates.iloc[-1]
+        upper = upper_candidates.iloc[0]
 
     lower_expiry = lower["expiry_date"]
     upper_expiry = upper["expiry_date"]
@@ -123,22 +176,9 @@ for value_date, day in df.groupby("date"):
 
     target_tau = TARGET_DTE / 365.0
 
-    # --------------------------------------------------------
-    # If exactly 30D exists, use it directly.
-    # --------------------------------------------------------
-
-    if lower_dte == TARGET_DTE:
-
-        upper_dte = TARGET_DTE
-
-        upper_tau = lower_tau
-
-        upper_expiry = lower_expiry
-
+    if exact_maturity:
         alpha = 0.0
-
     else:
-
         alpha = (
             target_tau - lower_tau
         ) / (
@@ -196,11 +236,20 @@ for value_date, day in df.groupby("date"):
     )
 
     if len(lower_df) < 5 or len(upper_df) < 5:
-
-        print(
-            "  SKIP: insufficient smile points"
+        deficient_sides = []
+        if len(lower_df) < 5:
+            deficient_sides.append("below")
+        if len(upper_df) < 5:
+            deficient_sides.append("above")
+        diagnostic["status"] = (
+            f"insufficient_smile_points_{'_and_'.join(deficient_sides)}_30d"
         )
-
+        diagnostic["reason"] = (
+            f"Fewer than 5 usable points for the "
+            f"{' and '.join(deficient_sides)} 30-day expiry"
+        )
+        date_diagnostics.append(diagnostic)
+        print(f"  SKIP: {diagnostic['reason']}")
         continue
 
     # --------------------------------------------------------
@@ -259,12 +308,12 @@ for value_date, day in df.groupby("date"):
     )
 
     if valid.sum() < 20:
-
-        print(
-            "  SKIP: insufficient common "
-            "moneyness coverage"
+        diagnostic["status"] = "insufficient_common_moneyness_coverage"
+        diagnostic["reason"] = (
+            f"Only {int(valid.sum())} common grid points; at least 20 required"
         )
-
+        date_diagnostics.append(diagnostic)
+        print(f"  SKIP: {diagnostic['reason']}")
         continue
 
     k = K_GRID[valid]
@@ -277,7 +326,7 @@ for value_date, day in df.groupby("date"):
     # INTERPOLATE TOTAL VARIANCE
     # --------------------------------------------------------
 
-    if lower_dte == TARGET_DTE:
+    if exact_maturity:
 
         w30 = w1
 
@@ -313,7 +362,7 @@ for value_date, day in df.groupby("date"):
         upper_df["forward"].iloc[0]
     )
 
-    if lower_dte == TARGET_DTE:
+    if exact_maturity:
 
         F30 = F1
 
@@ -370,6 +419,10 @@ for value_date, day in df.groupby("date"):
     all_smiles.append(
         smile
     )
+    diagnostic["status"] = (
+        "ok_exact_30d" if exact_maturity else "ok_interpolated"
+    )
+    date_diagnostics.append(diagnostic)
 
     print(
         f"  {lower_dte:.0f}D -> "
@@ -382,6 +435,25 @@ for value_date, day in df.groupby("date"):
 # ============================================================
 # COMBINE
 # ============================================================
+
+diagnostics_df = pd.DataFrame(date_diagnostics)
+diagnostics_df.to_csv(
+    DIAGNOSTICS,
+    index=False,
+)
+
+if diagnostics_df.empty:
+    print("No dates available to diagnose.")
+else:
+    failed_dates = diagnostics_df[
+        ~diagnostics_df["status"].str.startswith("ok")
+    ]
+    if failed_dates.empty:
+        print("All dates produced 30-day smiles.")
+    else:
+        print("Dates without a 30-day smile:")
+        for row in failed_dates.itertuples(index=False):
+            print(f"  {row.date.date()}: {row.status} - {row.reason}")
 
 if not all_smiles:
 
@@ -438,7 +510,7 @@ print(
 )
 
 print(OUTPUT)
-
+print(f"Diagnostics: {DIAGNOSTICS}")
 print("=" * 70)
 print("DONE")
 print("=" * 70)

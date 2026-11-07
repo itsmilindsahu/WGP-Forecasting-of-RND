@@ -314,14 +314,23 @@ def main():
             g["rate"].iloc[0]
         )
 
-        # Extract RND
-        K, density, density_raw, raw_mass, projection_diagnostics = extract_rnd(
-            g["strike"].to_numpy(),
-            forward,
-            tau,
-            rate,
-            g["fitted_iv"].to_numpy()
-        )
+        try:
+            K, density, density_raw, raw_mass, projection_diagnostics = extract_rnd(
+                g["strike"].to_numpy(),
+                forward,
+                tau,
+                rate,
+                g["fitted_iv"].to_numpy()
+            )
+        except Exception as exc:
+            diagnostic_rows.append({
+                "date": date,
+                "status": "error",
+                "error_type": type(exc).__name__,
+                "error_message": str(exc),
+            })
+            print(f"{date.date()} | ERROR: {type(exc).__name__}: {exc}")
+            continue
 
         # Store density
         for strike, q in zip(K, density):
@@ -347,6 +356,7 @@ def main():
         )
 
         diag["date"] = date
+        diag["status"] = "ok"
 
         diagnostic_rows.append(diag)
 

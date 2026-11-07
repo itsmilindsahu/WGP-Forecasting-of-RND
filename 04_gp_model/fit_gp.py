@@ -222,7 +222,9 @@ def fit_hyperparameters(
         "gamma": gamma,
         "sigma_n2": sigma_n2,
         "neg_log_lik": result.fun,
-        "gamma_median_heuristic": gamma_med
+        "gamma_median_heuristic": gamma_med,
+        "success": bool(result.success),
+        "message": str(result.message),
     }
 
 
@@ -237,6 +239,8 @@ class WassersteinGP:
         self.sigma_f2 = None
         self.gamma = None
         self.sigma_n2 = None
+        self.hyperparameter_success = None
+        self.hyperparameter_message = ""
 
         self.Q_train = None
         self.alpha = None
@@ -280,6 +284,8 @@ class WassersteinGP:
         self.sigma_n2 = (
             params["sigma_n2"]
         )
+        self.hyperparameter_success = params["success"]
+        self.hyperparameter_message = params["message"]
 
         K = (
             self.sigma_f2

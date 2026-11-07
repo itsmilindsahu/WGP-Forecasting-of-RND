@@ -98,6 +98,8 @@ class MomentGaussianProcess:
             bounds=bounds,
         )
         self.params = result.x
+        self.optimization_success = bool(result.success)
+        self.optimization_message = str(result.message)
         self.signal_variance = float(np.exp(self.params[0]))
         self.length_scales = np.exp(self.params[1:4])
         self.noise_variance = float(np.exp(self.params[4]))
