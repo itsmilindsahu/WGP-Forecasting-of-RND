@@ -3,7 +3,9 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+from matplotlib.animation import FuncAnimation, PillowWriter
 import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch
 import numpy as np
 import pandas as pd
 
@@ -49,6 +51,153 @@ def _read(name: str) -> pd.DataFrame:
 def _save(fig: plt.Figure, name: str) -> None:
     fig.tight_layout()
     fig.savefig(FIGURE_DIR / name, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
+def _animated_pipeline() -> None:
+    labels = [
+        "Option quotes",
+        "30d smile + SVI",
+        "Risk-neutral density",
+        "Quantile forecast",
+        "W2 evaluation",
+    ]
+    colors = ["#2563eb", "#7c3aed", "#0891b2", "#db2777", "#16a34a"]
+    fig, ax = plt.subplots(figsize=(12, 3.2))
+    ax.set_xlim(0, len(labels))
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+
+    def update(frame: int) -> list:
+        ax.clear()
+        ax.set_xlim(0, len(labels))
+        ax.set_ylim(0, 1)
+        ax.axis("off")
+        for index, (label, color) in enumerate(zip(labels, colors)):
+            active = index == frame
+            box = FancyBboxPatch(
+                (index + 0.08, 0.34),
+                0.78,
+                0.34,
+                boxstyle="round,pad=0.04,rounding_size=0.06",
+                linewidth=2 if active else 1,
+                edgecolor=color,
+                facecolor=color if active else "#f8fafc",
+            )
+            ax.add_patch(box)
+            ax.text(
+                index + 0.47,
+                0.51,
+                label,
+                ha="center",
+                va="center",
+                fontsize=9,
+                color="white" if active else "#0f172a",
+                weight="bold" if active else "normal",
+                wrap=True,
+            )
+            if index < len(labels) - 1:
+                ax.annotate(
+                    "",
+                    xy=(index + 1.04, 0.51),
+                    xytext=(index + 0.88, 0.51),
+                    arrowprops={"arrowstyle": "->", "color": "#64748b", "lw": 1.8},
+                )
+        ax.text(
+            len(labels) / 2,
+            0.9,
+            "From option data to a distributional score",
+            ha="center",
+            va="center",
+            fontsize=14,
+            color="#0f172a",
+            weight="bold",
+        )
+        ax.text(
+            len(labels) / 2,
+            0.13,
+            "Illustrative pipeline animation; no market observations shown",
+            ha="center",
+            va="center",
+            fontsize=9,
+            color="#64748b",
+        )
+        return list(ax.patches) + list(ax.texts)
+
+    animation = FuncAnimation(fig, update, frames=len(labels), interval=900, blit=False)
+    animation.save(
+        FIGURE_DIR / "pipeline_walkthrough.gif",
+        writer=PillowWriter(fps=1.2),
+        savefig_kwargs={"facecolor": "white"},
+    )
+    plt.close(fig)
+
+
+def _animated_quantile_change() -> None:
+    probability = np.linspace(0.01, 0.99, 240)
+    base = np.exp(0.72 * (probability - 0.5))
+    base /= base.mean()
+    shape = np.sin(np.pi * (probability - 0.5)) * (probability - 0.5)
+    target = np.maximum(base + 0.32 * shape, 0.02)
+    target /= target.mean()
+
+    fig, ax = plt.subplots(figsize=(8.5, 5))
+
+    def update(frame: int) -> list:
+        fraction = frame / 35
+        forecast = np.maximum(base + fraction * (target - base), 0.02)
+        forecast /= forecast.mean()
+        ax.clear()
+        ax.plot(
+            probability,
+            base,
+            color="#475569",
+            linestyle="--",
+            linewidth=2,
+            label="Persistence (zero change)",
+        )
+        ax.plot(
+            probability,
+            forecast,
+            color="#db2777",
+            linewidth=2.7,
+            label="Projected forecast",
+        )
+        ax.plot(
+            probability,
+            target,
+            color="#2563eb",
+            alpha=0.55,
+            linewidth=1.8,
+            label="Illustrative target",
+        )
+        ax.set(
+            xlim=(0, 1),
+            ylim=(0, max(target) * 1.12),
+            xlabel="Probability u",
+            ylabel="Forward-normalized quantile Q(u)",
+            title="Quantile-change forecast and validity projection",
+        )
+        ax.grid(alpha=0.2)
+        ax.legend(loc="upper left", frameon=False)
+        ax.text(
+            0.99,
+            0.02,
+            "Synthetic illustration only — not SPX data",
+            transform=ax.transAxes,
+            ha="right",
+            va="bottom",
+            fontsize=8,
+            color="#64748b",
+        )
+        return list(ax.lines) + list(ax.texts)
+
+    animation = FuncAnimation(fig, update, frames=36, interval=100, blit=False)
+    animation.save(
+        FIGURE_DIR / "quantile_change_illustration.gif",
+        writer=PillowWriter(fps=12),
+        savefig_kwargs={"facecolor": "white"},
+    )
     plt.close(fig)
 
 
@@ -354,6 +503,8 @@ def _example_quantiles() -> None:
 
 def main() -> None:
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
+    _animated_pipeline()
+    _animated_quantile_change()
     _skill_heatmap(
         "squared_w2",
         "01_squared_w2_skill_heatmap.png",

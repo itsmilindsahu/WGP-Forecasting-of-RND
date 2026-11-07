@@ -1,6 +1,11 @@
 # Wasserstein forecasting of SPX risk-neutral densities
 
-Private repository. Research pipeline, internal. Data-backed results come from ThetaData EOD options (2024-01-02 to 2026-11-04); do not make this repository public or redistribute raw quotes.
+Research pipeline · SPX risk-neutral densities · descriptive evaluation only. Data-backed results use ThetaData EOD options (2024-01-02 to 2026-11-04); never redistribute raw quotes or credentials.
+
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Pipeline](https://img.shields.io/badge/Pipeline-01%E2%86%9207-7C3AED)](#pipeline-stages)
+[![Evaluation](https://img.shields.io/badge/Evaluation-W2%20%7C%20h%3D1%2C5-0891B2)](#evaluation-protocol)
+[![Data policy](https://img.shields.io/badge/Data-raw%20quotes%20stay%20local-DC2626)](#data-and-reproducibility)
 
 This project turns SPX option quotes into forward-normalized density forecasts and compares them with a shared Wasserstein-2 evaluation protocol. The code is organized by stage from data collection to evaluation, and every reported score is a descriptive pipeline result rather than an outperformance claim.
 
@@ -15,9 +20,23 @@ flowchart LR
     E --> F[Forward-normalized quantile functions]
     F --> G[Wasserstein-kernel GP / baselines]
     G --> H[Common h=1 and h=5 W2 evaluation]
+    classDef source fill:#dbeafe,stroke:#2563eb,color:#172554,stroke-width:2px
+    classDef transform fill:#ede9fe,stroke:#7c3aed,color:#2e1065,stroke-width:2px
+    classDef density fill:#cffafe,stroke:#0891b2,color:#164e63,stroke-width:2px
+    classDef forecast fill:#fce7f3,stroke:#db2777,color:#831843,stroke-width:2px
+    classDef score fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    class A,B source
+    class C,D transform
+    class E,F density
+    class G forecast
+    class H score
 ```
 
 The pipeline extracts option-implied risk-neutral distributions (RNDs), represents them as quantile functions, and compares forecasted distributions with the 2-Wasserstein metric. The main Phase 4 model predicts the change in the quantile function, projects each forecast onto a valid quantile shape, and scores the projected forecast against persistence on the same shared pairs.
+
+![Animated pipeline walkthrough](docs/figures/pipeline_walkthrough.gif)
+
+*Animated schematic of the stages. It is an illustration, not a market-data visualization.*
 
 ## Why quantile functions and W2
 
@@ -35,6 +54,29 @@ $$
 
 where $\gamma$ is an inverse squared length-scale parameter. The key modeling choice is to forecast the change in the forward-normalized quantile function and then project that forecast back to a valid quantile function (nondecreasing, nonnegative, mean one), so every model is evaluated on the same support and persistence corresponds to the zero-change case.
 
+```mermaid
+flowchart LR
+    A["Input Q_t(u)"] --> B["Estimate ΔQ"]
+    B --> C["Add: Q_t + ΔQ"]
+    C --> D["Isotonic ordering"]
+    D --> E["Clip to nonnegative"]
+    E --> F["Normalize mean to one"]
+    F --> G["Valid forecast Q̂"]
+    A -. "ΔQ = 0" .-> G
+    classDef input fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef estimate fill:#fef3c7,stroke:#d97706,color:#78350f
+    classDef project fill:#fce7f3,stroke:#db2777,color:#831843
+    classDef output fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    class A input
+    class B,C estimate
+    class D,E,F project
+    class G output
+```
+
+![Animated quantile-change illustration](docs/figures/quantile_change_illustration.gif)
+
+*Synthetic schematic only: the curve animation explains zero-change persistence and a projected change; it contains no market observations and is not a forecast result.*
+
 ## Pipeline stages
 
 ```mermaid
@@ -45,6 +87,14 @@ flowchart TB
     A04 --> A05[05_baselines]
     A05 --> A06[06_evaluation]
     A06 --> A07[07_writeup]
+    classDef collect fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef density fill:#cffafe,stroke:#0891b2,color:#164e63
+    classDef model fill:#fce7f3,stroke:#db2777,color:#831843
+    classDef eval fill:#dcfce7,stroke:#16a34a,color:#14532d
+    class A01 collect
+    class A02,A03 density
+    class A04,A05 model
+    class A06,A07 eval
 ```
 
 | Stage folder | Input | Output | Key checks |
@@ -84,6 +134,27 @@ The code keeps the full date stack available even when some dates drop out, and 
 
 The main Phase 4 forecast is built on the change in a forward-normalized quantile representation; each forecast is projected to a valid quantile function with nondecreasing order, nonnegative density, and mean-one normalization. The zero-change case reproduces persistence exactly by construction.
 
+```mermaid
+flowchart LR
+    A["Shared training pairs"] --> B["Quantile-change GP"]
+    A --> C["Moment GP"]
+    A --> D["SVI-parameter GP"]
+    A --> E["Linear quantile factors"]
+    A --> F["Wasserstein-input GP"]
+    B --> G["Common quantile projection"]
+    C --> G
+    D --> G
+    E --> G
+    F --> G
+    G --> H["Same-pair W2 scoring"]
+    classDef data fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef model fill:#ede9fe,stroke:#7c3aed,color:#2e1065
+    classDef common fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    class A data
+    class B,C,D,E,F model
+    class G,H common
+```
+
 ## Evaluation protocol
 
 ```mermaid
@@ -95,11 +166,33 @@ flowchart LR
     E --> F[Project forecast to valid quantile]
     F --> G[W2 and squared-W2 scoring]
     G --> H[Newey-West + moving-block bootstrap + Holm]
+    classDef calendar fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef split fill:#ede9fe,stroke:#7c3aed,color:#2e1065
+    classDef score fill:#cffafe,stroke:#0891b2,color:#164e63
+    classDef inference fill:#dcfce7,stroke:#16a34a,color:#14532d
+    class A,B calendar
+    class C,D,E split
+    class F,G score
+    class H inference
 ```
 
 The evaluation uses the NYSE/XNYS calendar before date filtering, which means a missing date removes only the pairs involving that date and never turns a next-day target into a multi-day one. Both horizons are always reported, and all models share the same date splits, transformation, and projection path.
 
 The hyperparameter grid is fixed ahead of time as the median-heuristic multipliers {0.1, 0.3, 1, 3, 10}; the same forward-chaining time-series CV is applied to the model’s projected squared-W2 loss inside the training window, never on the test set. The saved files `06_evaluation/results/phase4_cv_loss_curve.csv` and `06_evaluation/results/phase4_selected_hyperparameters.csv` retain the full selection diagnostics.
+
+```mermaid
+sequenceDiagram
+    participant T as Training window
+    participant C as Forward-chaining CV
+    participant M as Model and projection
+    participant H as Held-out horizon
+    T->>C: Fit folds using past dates only
+    C->>M: Try fixed gamma and noise grid
+    M-->>C: Projected squared-W2 validation losses
+    C->>T: Select lowest mean CV loss
+    T->>M: Refit selected setting
+    M->>H: Forecast once on untouched pairs
+```
 
 ## Results
 
