@@ -201,6 +201,258 @@ def _animated_quantile_change() -> None:
     plt.close(fig)
 
 
+def _animated_w2_transport() -> None:
+    probability = np.linspace(0.03, 0.97, 180)
+    source = np.exp(0.85 * (probability - 0.5))
+    source /= source.mean()
+    target = np.exp(1.05 * (probability - 0.54))
+    target /= target.mean()
+    selected = np.linspace(8, len(probability) - 9, 15, dtype=int)
+
+    fig, (ax_curve, ax_cost) = plt.subplots(
+        1, 2, figsize=(11, 4.5), gridspec_kw={"width_ratios": [1.65, 1]}
+    )
+
+    def update(frame: int) -> list:
+        fraction = frame / 27
+        moving = source[selected] + fraction * (target[selected] - source[selected])
+        ax_curve.clear()
+        ax_cost.clear()
+        ax_curve.plot(probability, source, color="#2563eb", linewidth=2.2, label="Source Q₁(u)")
+        ax_curve.plot(probability, target, color="#db2777", linewidth=2.2, label="Target Q₂(u)")
+        ax_curve.scatter(source[selected], moving, color="#64748b", s=18, zorder=3)
+        ax_curve.scatter(target[selected], moving, color="#db2777", s=18, zorder=3)
+        for start, end, y in zip(source[selected], target[selected], moving):
+            ax_curve.plot([start, end], [y, y], color="#94a3b8", linewidth=0.8, alpha=0.65)
+        ax_curve.set(
+            xlabel="Probability level u",
+            ylabel="Quantile value Q(u)",
+            title="Monotone quantile-to-quantile transport",
+            xlim=(0, 1),
+        )
+        ax_curve.legend(frameon=False, loc="upper left")
+        ax_curve.grid(alpha=0.18)
+        cost = (target - source) ** 2
+        ax_cost.fill_between(probability, cost, color="#7c3aed", alpha=0.18)
+        ax_cost.plot(probability, cost, color="#7c3aed", linewidth=2.2)
+        ax_cost.axvline(fraction, color="#f59e0b", linestyle="--", linewidth=1.5)
+        ax_cost.set(
+            xlabel="Probability level u",
+            ylabel="Squared quantile gap",
+            title="W₂² integrates squared gaps",
+            xlim=(0, 1),
+            ylim=(0, float(cost.max()) * 1.15),
+        )
+        fig.suptitle("One-dimensional Wasserstein-2 geometry", color="#0f172a", weight="bold")
+        fig.text(
+            0.5,
+            0.01,
+            "Synthetic curves for explanation only — not market observations",
+            ha="center",
+            fontsize=8,
+            color="#64748b",
+        )
+        fig.tight_layout(rect=(0, 0.04, 1, 0.94))
+        return list(ax_curve.lines) + list(ax_curve.collections) + list(ax_cost.lines) + list(ax_cost.collections)
+
+    animation = FuncAnimation(fig, update, frames=28, interval=110, blit=False)
+    animation.save(
+        FIGURE_DIR / "wasserstein_transport.gif",
+        writer=PillowWriter(fps=10),
+        savefig_kwargs={"facecolor": "white"},
+    )
+    plt.close(fig)
+
+
+def _animated_kernel_similarity() -> None:
+    probability = np.linspace(0.01, 0.99, 220)
+    query = np.exp(0.8 * (probability - 0.5))
+    query /= query.mean()
+    shape_offsets = np.linspace(-0.9, 0.9, 7)
+    candidates = []
+    for offset in shape_offsets:
+        centered = probability - 0.5
+        q = np.exp((0.8 + 0.25 * offset) * centered + 0.6 * offset * centered**2)
+        candidates.append(q / q.mean())
+    candidates_array = np.asarray(candidates)
+    distances = np.mean((candidates_array - query) ** 2, axis=1)
+    gamma_grid = np.geomspace(500, 0.08, 32)
+
+    fig, (ax_curve, ax_kernel) = plt.subplots(
+        1, 2, figsize=(11, 4.4), gridspec_kw={"width_ratios": [1.55, 1]}
+    )
+
+    def update(frame: int) -> list:
+        gamma = gamma_grid[frame]
+        weights = np.exp(-gamma * distances)
+        weights /= weights.sum()
+        ax_curve.clear()
+        ax_kernel.clear()
+        ax_curve.plot(probability, query, color="#0f172a", linewidth=2.4, label="Query density quantile")
+        for index, candidate in enumerate(candidates_array):
+            ax_curve.plot(
+                probability,
+                candidate,
+                color="#94a3b8",
+                alpha=0.35 + 0.6 * weights[index],
+                linewidth=0.8 + 2.0 * weights[index],
+            )
+        ax_curve.set(
+            xlabel="Probability level u",
+            ylabel="Forward-normalized Q(u)",
+            title="Training shapes around a query",
+            xlim=(0, 1),
+        )
+        ax_curve.legend(frameon=False, loc="upper left")
+        ax_curve.grid(alpha=0.18)
+        colors = ["#2563eb" if i == np.argmin(distances) else "#7c3aed" for i in range(len(weights))]
+        ax_kernel.bar(np.arange(1, len(weights) + 1), weights, color=colors, width=0.72)
+        ax_kernel.set(
+            xlabel="Illustrative training distribution",
+            ylabel="Normalized kernel weight",
+            title=f"Similarity weights · γ = {gamma:.2f}",
+            ylim=(0, 1),
+            xticks=np.arange(1, len(weights) + 1),
+        )
+        ax_kernel.grid(axis="y", alpha=0.18)
+        fig.suptitle("Wasserstein kernel: distance becomes local similarity", color="#0f172a", weight="bold")
+        fig.text(
+            0.5,
+            0.01,
+            "Schematic quantiles and weights; animation does not use fitted model results",
+            ha="center",
+            fontsize=8,
+            color="#64748b",
+        )
+        fig.tight_layout(rect=(0, 0.04, 1, 0.94))
+        return list(ax_curve.lines) + list(ax_kernel.patches) + list(ax_kernel.texts)
+
+    animation = FuncAnimation(fig, update, frames=len(gamma_grid), interval=110, blit=False)
+    animation.save(
+        FIGURE_DIR / "wasserstein_kernel_weights.gif",
+        writer=PillowWriter(fps=10),
+        savefig_kwargs={"facecolor": "white"},
+    )
+    plt.close(fig)
+
+
+def _animated_calendar_pairs() -> None:
+    sessions = np.arange(1, 14)
+    missing_session = 7
+    horizons = (1, 5)
+    fig, axes = plt.subplots(2, 1, figsize=(10, 4.4), sharex=True)
+
+    def update(frame: int) -> list:
+        visible = frame + 6
+        for ax, horizon in zip(axes, horizons):
+            ax.clear()
+            ax.set_xlim(0.3, len(sessions) + 0.7)
+            ax.set_ylim(-0.7, 1.3)
+            ax.set_yticks([])
+            ax.set_title(f"h = {horizon} trading session{'s' if horizon != 1 else ''}", loc="left", fontsize=10)
+            ax.scatter(sessions, np.zeros_like(sessions), color="#2563eb", s=35, zorder=3)
+            ax.scatter([missing_session], [0], color="#dc2626", marker="x", s=85, linewidth=2.5, zorder=4)
+            for origin in range(1, visible - horizon + 1):
+                target = origin + horizon
+                if target > len(sessions):
+                    break
+                involves_missing = origin == missing_session or target == missing_session
+                color = "#cbd5e1" if involves_missing else ("#0891b2" if horizon == 1 else "#7c3aed")
+                alpha = 0.42 if involves_missing else 0.8
+                arc_height = min(0.18 + 0.055 * horizon, 0.58)
+                ax.annotate(
+                    "",
+                    xy=(target, 0.02),
+                    xytext=(origin, 0.02),
+                    arrowprops={
+                        "arrowstyle": "->",
+                        "connectionstyle": f"arc3,rad={-arc_height}",
+                        "color": color,
+                        "lw": 1.5,
+                        "alpha": alpha,
+                    },
+                )
+            for day in sessions:
+                ax.text(day, -0.26, f"S{day}", ha="center", va="top", fontsize=7, color="#475569")
+            ax.grid(axis="x", alpha=0.12)
+        axes[-1].set_xlabel("Ordered exchange sessions (schematic)")
+        fig.suptitle("Calendar-first pairing: missing sessions do not create longer targets", color="#0f172a", weight="bold")
+        fig.text(
+            0.5,
+            0.01,
+            "Red × = unavailable distribution; grey links are removed, not bridged",
+            ha="center",
+            fontsize=8,
+            color="#64748b",
+        )
+        fig.tight_layout(rect=(0, 0.04, 1, 0.93))
+        return [artist for ax in axes for artist in ax.get_children()]
+
+    animation = FuncAnimation(fig, update, frames=8, interval=350, blit=False)
+    animation.save(
+        FIGURE_DIR / "calendar_first_pairs.gif",
+        writer=PillowWriter(fps=4),
+        savefig_kwargs={"facecolor": "white"},
+    )
+    plt.close(fig)
+
+
+def _animated_forward_chaining() -> None:
+    folds = [
+        (4, 4, 6),
+        (6, 6, 8),
+        (8, 8, 10),
+        (10, 10, 12),
+    ]
+    n_sessions = 12
+    fig, ax = plt.subplots(figsize=(10, 2.7))
+    palette = {"train": "#2563eb", "validation": "#f59e0b", "test": "#e2e8f0"}
+
+    def update(frame: int) -> list:
+        train_end, validation_start, validation_end = folds[frame]
+        ax.clear()
+        ax.set_xlim(0, n_sessions)
+        ax.set_ylim(-0.6, 1.5)
+        ax.set_yticks([])
+        ax.set_xticks(np.arange(n_sessions) + 0.5, [f"t{i+1}" for i in range(n_sessions)])
+        ax.set_xlabel("Chronological sessions →")
+        for index in range(n_sessions):
+            if index < train_end:
+                color, label = palette["train"], "train"
+            elif validation_start <= index < validation_end:
+                color, label = palette["validation"], "validation"
+            else:
+                color, label = palette["test"], "not yet used"
+            ax.add_patch(
+                FancyBboxPatch(
+                    (index + 0.06, 0.2),
+                    0.88,
+                    0.48,
+                    boxstyle="round,pad=0.02,rounding_size=0.04",
+                    facecolor=color,
+                    edgecolor="white",
+                    linewidth=0.8,
+                )
+            )
+        ax.text(0.1, 1.04, f"Forward-chaining fold {frame + 1} of {len(folds)}", fontsize=12, weight="bold", color="#0f172a")
+        ax.text(0.1, -0.25, "Select hyperparameters using validation loss; test window remains untouched", fontsize=9, color="#475569")
+        ax.scatter([], [], color=palette["train"], label="training window")
+        ax.scatter([], [], color=palette["validation"], label="next validation block")
+        ax.scatter([], [], color=palette["test"], label="future / held out")
+        ax.legend(ncol=3, loc="upper right", frameon=False, fontsize=8)
+        ax.spines[["top", "left", "right"]].set_visible(False)
+        ax.grid(axis="x", alpha=0.12)
+        return list(ax.patches) + list(ax.texts) + list(ax.collections)
+
+    animation = FuncAnimation(fig, update, frames=len(folds), interval=750, blit=False)
+    animation.save(
+        FIGURE_DIR / "forward_chaining_cv.gif",
+        writer=PillowWriter(fps=1.5),
+        savefig_kwargs={"facecolor": "white"},
+    )
+    plt.close(fig)
+
+
 def _skill_heatmap(metric: str, output: str, title: str) -> None:
     summary = _read("phase4_forecast_summary.csv")
     summary = summary.loc[summary.training_condition == "full_training"]
@@ -505,6 +757,10 @@ def main() -> None:
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     _animated_pipeline()
     _animated_quantile_change()
+    _animated_w2_transport()
+    _animated_kernel_similarity()
+    _animated_calendar_pairs()
+    _animated_forward_chaining()
     _skill_heatmap(
         "squared_w2",
         "01_squared_w2_skill_heatmap.png",

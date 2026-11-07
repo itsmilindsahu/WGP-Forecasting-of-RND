@@ -9,6 +9,16 @@ Research pipeline · SPX risk-neutral densities · descriptive evaluation only. 
 
 This project turns SPX option quotes into forward-normalized density forecasts and compares them with a shared Wasserstein-2 evaluation protocol. The code is organized by stage from data collection to evaluation, and every reported score is a descriptive pipeline result rather than an outperformance claim.
 
+| Research element | Specification |
+|---|---|
+| Objective | Forecast changes in option-implied risk-neutral distributions |
+| Representation | Forward-normalized quantile functions |
+| Comparison | Persistence and shared model baselines |
+| Evaluation | NYSE-session horizons, W2 loss, chronological validation |
+| Evidence status | Descriptive pipeline comparison; not an outperformance claim |
+
+**Contents:** [Pipeline](#the-idea-in-60-seconds) · [W2 method](#why-quantile-functions-and-w2) · [Models](#models-compared) · [Evaluation](#evaluation-protocol) · [Results](#results) · [Reproducibility](#data-and-reproducibility)
+
 ## The idea in 60 seconds
 
 ```mermaid
@@ -54,6 +64,10 @@ $$
 
 where $\gamma$ is an inverse squared length-scale parameter. The key modeling choice is to forecast the change in the forward-normalized quantile function and then project that forecast back to a valid quantile function (nondecreasing, nonnegative, mean one), so every model is evaluated on the same support and persistence corresponds to the zero-change case.
 
+![Animated one-dimensional Wasserstein transport](docs/figures/wasserstein_transport.gif)
+
+*Conceptual animation: quantiles at matching probability levels move monotonically; the shaded squared gaps integrate to W2 squared. Synthetic curves only.*
+
 ```mermaid
 flowchart LR
     A["Input Q_t(u)"] --> B["Estimate ΔQ"]
@@ -76,6 +90,10 @@ flowchart LR
 ![Animated quantile-change illustration](docs/figures/quantile_change_illustration.gif)
 
 *Synthetic schematic only: the curve animation explains zero-change persistence and a projected change; it contains no market observations and is not a forecast result.*
+
+![Animated Wasserstein-kernel similarities](docs/figures/wasserstein_kernel_weights.gif)
+
+*Conceptual animation: a distance-based kernel maps differences between distributions into normalized similarity weights as gamma changes. It does not show fitted model weights.*
 
 ## Pipeline stages
 
@@ -132,7 +150,7 @@ The code keeps the full date stack available even when some dates drop out, and 
 | Wasserstein autoregression (legacy) | quantile trajectory | Wasserstein basis coordinates | continuity row |
 | Persistence | prior quantile function | no model | baseline |
 
-The main Phase 4 forecast is built on the change in a forward-normalized quantile representation; each forecast is projected to a valid quantile function with nondecreasing order, nonnegative density, and mean-one normalization. The zero-change case reproduces persistence exactly by construction.
+The main Phase 4 forecast is built on the change in a forward-normalized quantile representation; each forecast is projected to a valid quantile function with nondecreasing order, nonnegative quantile values, and mean-one normalization. The zero-change case reproduces persistence exactly by construction.
 
 ```mermaid
 flowchart LR
@@ -178,6 +196,10 @@ flowchart LR
 
 The evaluation uses the NYSE/XNYS calendar before date filtering, which means a missing date removes only the pairs involving that date and never turns a next-day target into a multi-day one. Both horizons are always reported, and all models share the same date splits, transformation, and projection path.
 
+![Animated calendar-first session pairs](docs/figures/calendar_first_pairs.gif)
+
+*Schematic calendar illustration: unavailable endpoints remove their pairs; the pairing logic does not bridge to a different horizon.*
+
 The hyperparameter grid is fixed ahead of time as the median-heuristic multipliers {0.1, 0.3, 1, 3, 10}; the same forward-chaining time-series CV is applied to the model’s projected squared-W2 loss inside the training window, never on the test set. The saved files `06_evaluation/results/phase4_cv_loss_curve.csv` and `06_evaluation/results/phase4_selected_hyperparameters.csv` retain the full selection diagnostics.
 
 ```mermaid
@@ -193,6 +215,10 @@ sequenceDiagram
     T->>M: Refit selected setting
     M->>H: Forecast once on untouched pairs
 ```
+
+![Animated forward-chaining validation](docs/figures/forward_chaining_cv.gif)
+
+*Schematic expanding folds: validation blocks move forward in time, while the final held-out window remains outside hyperparameter selection.*
 
 ## Results
 
@@ -321,11 +347,11 @@ python run_all.py
 # run the Phase 4 evaluation pipeline
 python 06_evaluation/run_phase4_quantile_change.py
 
-# regenerate figures from the saved Phase 4 CSVs
+# regenerate figures and explanatory animations
 docs\make_figures.py
 ```
 
-The figure-generation file is reproducible: it reads the saved Phase 4 result CSVs and writes the PNGs into `docs/figures/`.
+The figure-generation file writes the result-backed PNGs and explanatory GIFs into `docs/figures/`. The GIFs are synthetic illustrations, not saved market observations or model forecasts.
 
 ## Repository map
 
@@ -364,6 +390,8 @@ See [CODEBASE_GUIDE.md](CODEBASE_GUIDE.md) for module-by-module execution order 
 - Skill: the relative improvement in loss versus persistence, computed on the same pair set.
 - Rolling-origin: an expanding window evaluation where the training set grows over time and the holdout is always later in time.
 - Forward-chaining CV: time-ordered validation folds used to select hyperparameters without leaking future information.
+
+The sections above supersede the preserved README for navigation; the original text below is retained verbatim.
 
 <details>
 <summary>Previous README (preserved verbatim)</summary>
